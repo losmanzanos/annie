@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reconnect | Sound Healing | Rooted Resonance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C1210;--ink-2:#121A16;--ink-3:#1A231D;
+  --cream:#EEEBE0;--cream-dim:rgba(238,235,224,.62);--cream-faint:rgba(238,235,224,.30);
+  --moss:#7C9A73;--moss-soft:#9CB893;--forest:#3C5145;
+  --clay:#C0714E;--clay-soft:#D9906E;--sage:#8D9E86;--gold:#D8B584;
+  --rule:rgba(238,235,224,.13);
+  --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);font-weight:300;
+  font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.32;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.narrow{max-width:780px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--display);font-weight:300;line-height:1.08;letter-spacing:-.015em}
+.eyebrow{font-family:var(--body);font-size:11px;font-weight:400;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--moss-soft)}
+em{font-style:italic}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;
+  justify-content:space-between;padding:26px 40px;transition:.5s}
+nav.solid{background:rgba(16,14,12,.86);backdrop-filter:blur(18px);padding:16px 40px;border-bottom:1px solid var(--rule)}
+/* LOGO SLOT: swap .glyph for <img src="media/logo.svg" class="glyph"> when the real file arrives */
+.mark{display:inline-flex;align-items:center;gap:13px;font-family:var(--display);
+  font-size:21px;letter-spacing:.16em;text-transform:uppercase}
+.mark .glyph{height:40px;width:auto;flex:none;display:block;
+  transition:transform .8s cubic-bezier(.16,1,.3,1),height .5s}
+.mark:hover .glyph{transform:scale(1.06)}
+nav.solid .mark .glyph{height:32px}
+.mark span{color:var(--moss-soft)}
+.seal{display:block;width:196px;height:auto;margin:0 auto 42px;opacity:.9}
+@media(max-width:640px){.seal{width:150px}}
+.navlinks{display:flex;gap:36px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim)}
+.navlinks a{position:relative;padding-bottom:3px;transition:color .3s}
+.navlinks a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--moss);transition:width .4s}
+.navlinks a:hover{color:var(--cream)}.navlinks a:hover::after{width:100%}
+@media(max-width:900px){.navlinks{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 34px;border-radius:999px;
+  font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;transition:.4s cubic-bezier(.16,1,.3,1)}
+.btn-solid{background:var(--clay);color:#150F0B;border:1px solid var(--clay)}
+.btn-solid:hover{background:var(--clay-soft);transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(192,113,78,.7)}
+.btn-ghost{border:1px solid var(--rule);color:var(--cream-dim)}
+.btn-ghost:hover{border-color:var(--cream-faint);color:var(--cream);transform:translateY(-2px)}
+.btn .arw{transition:transform .4s}.btn:hover .arw{transform:translateX(5px)}
+
+.badge{display:inline-flex;align-items:center;gap:8px;margin:14px 0 4px;
+  padding:6px 14px 6px 11px;border-radius:999px;border:1px solid var(--rule);
+  font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--cream-dim)}
+.badge .pip{width:6px;height:6px;border-radius:50%;flex:none;background:var(--moss)}
+.scopeline{max-width:620px;margin:26px auto 0;font-size:12.5px;line-height:1.65;
+  color:var(--cream-faint);position:relative}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--rule) 18%,var(--rule) 82%,transparent)}
+
+/* ---- breadcrumb path ---- */
+.crumb{padding:118px 0 0}
+.crumb-rail{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--cream-faint)}
+.crumb-rail a:hover{color:var(--cream-dim)}
+.crumb-rail .cur{color:var(--moss-soft)}
+.crumb-rail .sep{opacity:.45}
+
+/* ---- stage hero ---- */
+.shero{padding:56px 0 110px;position:relative;overflow:hidden}
+.shero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:end}
+@media(max-width:880px){.shero-in{grid-template-columns:1fr}}
+.shero h1{font-size:clamp(3.6rem,11vw,9rem);margin:22px 0 0}
+.shero .sub{margin-top:30px;max-width:520px;font-size:19px;color:var(--cream-dim)}
+.numeral{font-family:var(--display);font-size:clamp(6rem,14vw,12rem);line-height:.8;
+  color:transparent;-webkit-text-stroke:1px rgba(156,184,147,.35);opacity:.9}
+@media(max-width:880px){.numeral{display:none}}
+
+/* ---- signs ---- */
+.signs{padding:104px 0;background:var(--ink-2)}
+.signs-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:start}
+@media(max-width:880px){.signs-grid{grid-template-columns:1fr;gap:44px}}
+.signs h2{font-size:clamp(2rem,4vw,3.2rem)}
+.signs .lead{margin-top:26px;color:var(--cream-dim);max-width:480px}
+.checks{list-style:none;display:flex;flex-direction:column;gap:2px}
+.checks li{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--rule);
+  font-size:16px;color:var(--cream-dim);transition:color .4s,padding-left .4s}
+.checks li:hover{color:var(--cream);padding-left:6px}
+.checks li:first-child{border-top:1px solid var(--rule)}
+.checks .mk{flex:none;width:22px;height:22px;margin-top:5px;border-radius:50%;
+  border:1px solid var(--moss);display:grid;place-items:center}
+.checks .mk::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--moss)}
+
+/* ---- the offering ---- */
+.offer{padding:130px 0}
+.offer-head{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}
+@media(max-width:880px){.offer-head{grid-template-columns:1fr;gap:34px}}
+.offer-head h2{font-size:clamp(2.6rem,6vw,4.6rem);margin-top:20px}
+.offer-head p{color:var(--cream-dim)}
+
+.viz{margin:74px 0;display:grid;place-items:center;height:300px;position:relative}
+.viz svg{position:absolute}
+.viz circle{fill:none;stroke:rgba(156,184,147,.45);stroke-width:1;transform-origin:center;
+  opacity:0;animation:pulse 9s cubic-bezier(.33,0,.35,1) .8s infinite}
+.viz circle:nth-child(2){animation-delay:2.6s}.viz circle:nth-child(3){animation-delay:4.4s}
+.viz circle:nth-child(4){animation-delay:6.2s}.viz circle:nth-child(5){animation-delay:8s}
+@keyframes pulse{0%{transform:scale(.25);opacity:0}35%{opacity:.4}70%{opacity:.22}100%{transform:scale(1.5);opacity:0}}
+/* a small living window at the center of the resonance */
+.orb{
+  width:168px;height:168px;border-radius:50%;overflow:hidden;position:relative;z-index:2;
+  border:1px solid rgba(156,184,147,.32);
+  box-shadow:0 0 60px 14px rgba(12,18,16,.75), 0 0 0 12px rgba(12,18,16,.5);
+}
+.orb video{width:100%;height:100%;object-fit:cover;opacity:.8;filter:saturate(.55) brightness(.78) contrast(1.05)}
+.orb::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,transparent 40%,rgba(12,18,16,.72) 100%);
+}
+@media(max-width:600px){.orb{width:132px;height:132px}}
+@media(prefers-reduced-motion:reduce){.orb video{display:none}}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule)}
+/* tablet: 2 x 2 rather than an orphaned fourth cell */
+@media(max-width:900px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--ink);padding:34px 30px}
+.fact .k{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-faint)}
+.fact .v{font-family:var(--display);font-size:1.9rem;margin-top:10px;line-height:1.15}
+.fact .v small{font-size:.95rem;color:var(--cream-dim);display:block;font-family:var(--body);letter-spacing:.05em;margin-top:6px}
+
+/* ---- what happens ---- */
+.flow{padding:120px 0;background:var(--ink-2)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:44px;margin-top:60px}
+@media(max-width:1040px){.steps{grid-template-columns:repeat(2,1fr);gap:40px 44px}}
+@media(max-width:540px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding-top:34px;border-top:1px solid var(--rule)}
+.step::before{content:'';position:absolute;top:-1px;left:0;width:38px;height:1px;background:var(--moss)}
+.step .no{font-family:var(--display);font-size:13px;letter-spacing:.24em;color:var(--moss-soft)}
+.step h4{font-size:1.55rem;margin:14px 0 12px}
+.step p{font-size:14.5px;color:var(--cream-dim)}
+
+/* ---- pairing ---- */
+.pair{padding:120px 0}
+.pair-card{border:1px solid var(--rule);border-radius:4px;padding:52px 54px;
+  background:linear-gradient(140deg,rgba(124,154,115,.15),transparent 60%);
+  display:grid;grid-template-columns:1fr auto;gap:44px;align-items:center}
+@media(max-width:880px){.pair-card{grid-template-columns:1fr;padding:38px 30px}}
+.pair-card h3{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:14px 0 16px}
+.pair-card p{color:var(--cream-dim);max-width:520px}
+
+/* ---- booking ---- */
+.book{padding:150px 0;text-align:center;position:relative;overflow:hidden}
+.book .glow{position:absolute;width:900px;height:900px;border-radius:50%;top:50%;left:50%;
+  transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(124,154,115,.22),rgba(192,113,78,.08) 45%,transparent 66%);filter:blur(70px)}
+.book h2{font-size:clamp(2.5rem,6.4vw,5rem);position:relative;margin-top:20px}
+.book p{margin:26px auto 42px;max-width:470px;color:var(--cream-dim);position:relative}
+.book .row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* ---- next stage ---- */
+.next{border-top:1px solid var(--rule)}
+.next a{display:flex;align-items:center;justify-content:space-between;gap:30px;
+  padding:56px 0;transition:padding .5s}
+.next a:hover{padding-left:14px}
+.next .k{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-faint)}
+.next .t{font-family:var(--display);font-size:clamp(1.9rem,4vw,3rem);margin-top:8px}
+.next .arw{font-size:26px;color:var(--moss-soft);transition:transform .5s}
+.next a:hover .arw{transform:translateX(10px)}
+
+footer{border-top:1px solid var(--rule);padding:52px 0 44px}
+.f-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center;
+  font-size:12.5px;letter-spacing:.1em;color:var(--cream-faint)}
+.f-links{display:flex;gap:28px}.f-links a:hover{color:var(--cream-dim)}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="mark">
+    <img class="glyph" src="media/logo-mark.png" alt="">
+    <span style="color:var(--cream)">Rooted</span> <span>Resonance</span></a>
+  <div class="navlinks">
+    <a href="index.html#framework">The Framework</a>
+    <a href="index.html#offerings">Offerings</a>
+    <a href="blog.html">Journal</a>
+    <a href="#book">Book</a>
+  </div>
+</nav>
+
+<!-- breadcrumb: proves the framework is navigation -->
+<section class="crumb">
+  <div class="wrap">
+    <div class="crumb-rail rv">
+      <a href="index.html#framework">The Framework</a>
+      <span class="sep">/</span>
+      <span class="cur">Stage III · Reconnect</span>
+      <span class="sep">/</span>
+      <span>Sound Healing</span>
+    </div>
+  </div>
+</section>
+
+<!-- STAGE HERO -->
+<header class="shero">
+  <div class="wrap shero-in">
+    <div class="rv">
+      <div class="eyebrow">Stage Three of Five</div>
+      <h1>Reconnect</h1>
+      <p class="sub">Learning to trust your body and your nervous system again, after years
+      of being taught to override both.</p>
+    </div>
+    <div class="numeral rv">III</div>
+  </div>
+</header>
+
+<!-- SIGNS -->
+<section class="signs">
+  <div class="wrap signs-grid">
+    <div class="rv">
+      <div class="eyebrow">Is this where you are?</div>
+      <h2 style="margin-top:18px">You have understood things<br>for a long time.</h2>
+      <p class="lead">Insight stopped being the problem a while ago. You can explain your patterns
+      clearly and still feel a long way from your own body. This stage is where understanding
+      drops out of the head and into the nervous system.</p>
+      <p class="lead" style="font-family:var(--display);font-style:italic;font-size:1.35rem;color:var(--cream);margin-top:28px">
+      The body was never the problem. It was the part that kept the record.</p>
+    </div>
+    <div class="rv">
+      <ul class="checks">
+        <li><span class="mk"></span>You can name what happened, but you don't feel different.</li>
+        <li><span class="mk"></span>Rest feels unsafe, or productive-only.</li>
+        <li><span class="mk"></span>You notice a feeling and immediately explain it away.</li>
+        <li><span class="mk"></span>Your body sends signals you've learned to override.</li>
+        <li><span class="mk"></span>Talking about it has started to feel like circling.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- THE OFFERING -->
+<section class="offer">
+  <div class="wrap">
+    <div class="offer-head">
+      <div class="rv">
+        <div class="eyebrow">What supports you here</div>
+        <span class="badge well"><span class="pip"></span>Wellness · Nationwide</span>
+        <h2>Sound<br>Healing</h2>
+      </div>
+      <p class="rv">Vibration reaches the nervous system beneath language. You lie down.
+      You don't have to narrate, explain, or perform insight. The work happens through the body,
+      which is exactly where it stalled.</p>
+    </div>
+
+    <div class="viz rv">
+      <svg width="520" height="300" viewBox="0 0 520 300">
+        <circle cx="260" cy="150" r="96"/><circle cx="260" cy="150" r="96"/>
+        <circle cx="260" cy="150" r="96"/><circle cx="260" cy="150" r="96"/>
+        <circle cx="260" cy="150" r="96"/>
+      </svg>
+      <div class="orb">
+        <video id="orbVid" autoplay muted loop playsinline preload="metadata"
+               poster="media/ambient-poster.jpg" aria-hidden="true">
+          <source src="media/ambient.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="facts rv">
+      <div class="fact"><div class="k">Type</div><div class="v">Wellness<small>Not psychotherapy</small></div></div>
+      <div class="fact"><div class="k">Format</div><div class="v">In person<small>Denver area</small></div></div>
+      <div class="fact"><div class="k">Best paired with</div><div class="v">Breathwork<small>Same stage</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS -->
+<section class="flow">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow">What a session is like</div>
+      <h2 style="font-size:clamp(2.2rem,4.6vw,3.4rem);margin-top:18px;max-width:560px">
+        You don't need to know what you're doing.</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="no">01</div><h4>Arriving</h4>
+        <p>A short conversation. Where you are today, what your body is holding, what you'd rather not talk about. No history intake required.</p></div>
+      <div class="step rv"><div class="no">02</div><h4>Settling</h4>
+        <p>You lie down, fully clothed, supported. Breath slows before anything else begins. Nothing is asked of you.</p></div>
+      <div class="step rv"><div class="no">03</div><h4>Sound</h4>
+        <p>Bowls, voice, and tone move through the room and through you. Sensation shows up where you'd stopped noticing it.</p></div>
+      <div class="step rv"><div class="no">04</div><h4>Returning</h4>
+        <p>Slow re-entry, water, and space to say anything that surfaced, or to say nothing and let it settle.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIRING -->
+<section class="pair">
+  <div class="wrap">
+    <div class="pair-card rv">
+      <div>
+        <div class="eyebrow" style="color:var(--sage)">Also in this stage</div>
+        <h3>Breathwork</h3>
+        <p>The most direct door into the nervous system. Where sound works on you, breath is
+        something you do. Many people move between the two as the stage deepens.</p>
+      </div>
+      <a href="404.html" class="btn btn-ghost">Explore breathwork <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="eyebrow rv">Take the next step</div>
+    <h2 class="rv">Let the body <em>lead</em><br>for once.</h2>
+    <p class="rv">If you're unsure whether this is your stage, start with a conversation.
+    No cost, no commitment.</p>
+    <div class="row rv">
+      <a href="404.html" class="btn btn-solid">Book a sound session <span class="arw">→</span></a>
+      <a href="404.html" class="btn btn-ghost">Talk first</a>
+    </div>
+    <p class="scopeline rv">Sound healing and breathwork are wellness services, not psychotherapy,
+    and are open to anyone regardless of where you live. Somatic and relational therapy is licensed
+    clinical work available to residents of Colorado, Arizona, and Ohio.</p>
+  </div>
+</section>
+
+<!-- NEXT STAGE -->
+<section class="next">
+  <div class="wrap">
+    <a href="index.html#framework">
+      <div>
+        <div class="k">When you're ready · Stage IV</div>
+        <div class="t">Become</div>
+      </div>
+      <span class="arw">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="seal" src="media/logo-full.png"
+         alt="Rooted Resonance Coaching and Therapy. Become yourself. Transform everything.">
+  </div>
+  <div class="wrap f-in">
+    <div>Annie Memmott, LPC &nbsp;·&nbsp; Licensed in OH, AZ &amp; CO</div>
+    <div class="f-links">
+      <a href="index.html#framework">Framework</a>
+      <a href="index.html#offerings">Offerings</a>
+      <a href="blog.html">Journal</a>
+      <a href="#book">Book</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ov=document.getElementById('orbVid');
+if(ov){ov.playbackRate=.55;ov.addEventListener('loadeddata',()=>ov.playbackRate=.55);}
+
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+}),{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+</script>
+</body>
+</html>

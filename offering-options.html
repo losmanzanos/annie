@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offering card treatments | Rooted Resonance</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C1210;--ink-2:#121A16;--ink-3:#1A231D;
+  --cream:#EEEBE0;--cream-dim:rgba(238,235,224,.62);--cream-faint:rgba(238,235,224,.30);
+  --moss:#7C9A73;--moss-soft:#9CB893;--forest:#3C5145;
+  --clay:#C0714E;--clay-soft:#D9906E;--sage:#8D9E86;--gold:#D8B584;
+  --rule:rgba(238,235,224,.13);
+  --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);font-weight:300;
+  font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.3;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:300;line-height:1.1;letter-spacing:-.015em}
+.eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--moss-soft)}
+
+header{padding:80px 0 40px}
+header h1{font-size:clamp(2.4rem,5vw,3.6rem);margin-top:18px}
+header p{margin-top:22px;max-width:600px;color:var(--cream-dim)}
+
+section.opt{padding:64px 0;border-top:1px solid var(--rule)}
+.opt-head{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:10px}
+.opt-head h2{font-size:clamp(1.6rem,3.2vw,2.3rem)}
+.opt-head .num{font-family:var(--display);font-size:13px;letter-spacing:.28em;color:var(--clay-soft)}
+.opt-note{color:var(--cream-dim);font-size:14.5px;max-width:660px;margin-bottom:36px}
+.verdict{margin-top:26px;font-size:13px;color:var(--cream-faint);display:flex;gap:10px;align-items:flex-start;max-width:660px}
+.verdict .p{width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none;margin-top:9px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:var(--ink);padding:42px 34px 36px;position:relative;overflow:hidden;transition:background .5s}
+.card:hover{background:var(--ink-2)}
+.card h4{font-family:var(--display);font-size:1.6rem;font-weight:400;margin-bottom:12px}
+.card p{font-size:14.5px;color:var(--cream-dim)}
+.card .tag{margin-top:22px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+
+/* ============ 1. TYPOGRAPHIC ============ */
+.t-num{font-family:var(--display);font-size:3.4rem;line-height:1;color:var(--moss-soft);opacity:.85}
+.t-rule{height:1px;background:var(--rule);margin:20px 0 22px}
+
+/* ============ 2. DERIVED MARKS ============ */
+/* every mark: 32px grid, 1px stroke, round caps, same density as her logo lines */
+.mk{width:38px;height:38px;margin-bottom:24px;display:block;overflow:visible}
+.mk *{fill:none;stroke-width:1;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.mk .g{stroke:var(--moss-soft)}
+.mk .c{stroke:var(--clay-soft)}
+.mk .dotring{stroke:var(--clay-soft);stroke-dasharray:.6 4.2}
+.mk .dashring{stroke:var(--moss-soft);stroke-dasharray:3 7}
+
+/* ============ 3. ORNAMENT / CHAPTER OPENER ============ */
+.o-card{text-align:center;padding:52px 32px 44px}
+.orn{width:96px;height:14px;margin:0 auto 26px;display:block}
+.orn *{fill:none;stroke:var(--clay-soft);stroke-width:1;stroke-linecap:round}
+.o-card h4{font-size:1.7rem;letter-spacing:.01em}
+.o-card .kick{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-faint);margin-bottom:16px}
+.o-rule{width:38px;height:1px;background:var(--rule);margin:20px auto}
+
+/* ============ 4. PHOTOGRAPHIC ============ */
+.p-card{padding:0}
+.p-img{position:relative;height:190px;overflow:hidden;background:var(--ink-3)}
+.p-img img{width:100%;height:100%;object-fit:cover;opacity:.55;
+  filter:saturate(.35) brightness(.72) contrast(1.05)}
+.p-img::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,var(--ink) 100%),
+             linear-gradient(140deg,rgba(124,154,115,.28),transparent 70%)}
+.p-body{padding:30px 34px 36px}
+.p-tbd{position:absolute;left:14px;top:14px;z-index:2;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);border:1px dashed rgba(216,181,132,.5);
+  padding:5px 9px;border-radius:3px;background:rgba(12,18,16,.6)}
+
+footer{padding:70px 0 90px;border-top:1px solid var(--rule);color:var(--cream-faint);font-size:13.5px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="eyebrow">Rooted Resonance</div>
+  <h1>Four ways to treat the offering cards</h1>
+  <p>Same three offerings in each row so you can compare like for like. The current
+  build uses generic line pictograms, which is the thing that reads as templated.</p>
+</header>
+
+<!-- ============ OPTION 1 ============ -->
+<section class="opt">
+  <div class="wrap">
+    <div class="opt-head"><span class="num">Option 01</span><h2>Typographic</h2></div>
+    <p class="opt-note">No illustration at all. The framework stage numeral becomes the graphic
+    device, which also ties every offering back to the five stages instead of decorating it.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="t-num">II</div><div class="t-rule"></div>
+        <h4>Somatic Therapy</h4>
+        <p>Working with the adaptations that once protected you. Less talking about the
+        problem, more feeling and experiencing.</p>
+        <div class="tag">Therapy · OH AZ CO</div>
+      </div>
+      <div class="card">
+        <div class="t-num">III</div><div class="t-rule"></div>
+        <h4>Sound Healing</h4>
+        <p>Rest, regulation, and integration without needing to talk.</p>
+        <div class="tag">Wellness · Nationwide</div>
+      </div>
+      <div class="card">
+        <div class="t-num">V</div><div class="t-rule"></div>
+        <h4>Workshops</h4>
+        <p>Authentic community. Where self-trust gets practiced with other people in the room.</p>
+        <div class="tag">Wellness · Coming soon</div>
+      </div>
+    </div>
+    <p class="verdict"><span class="p"></span>Impossible to look templated because nothing is
+    borrowed. Reinforces the framework-as-navigation idea, which is the actual selling point of
+    the rebuild. Risk: she may read it as unfinished.</p>
+  </div>
+</section>
+
+<!-- ============ OPTION 2 ============ -->
+<section class="opt">
+  <div class="wrap">
+    <div class="opt-head"><span class="num">Option 02</span><h2>Marks drawn from her logo</h2></div>
+    <p class="opt-note">Built from the vocabulary already in her mark: forked roots, the
+    dash-and-dot sunburst, a single leaf on a stem, the laurel sprig. One 32px grid, one stroke
+    weight, one level of abstraction across all five.</p>
+    <div class="grid">
+      <div class="card">
+        <!-- roots: taken straight from the logo's root system -->
+        <svg class="mk" viewBox="0 0 32 32">
+          <path class="g" d="M16 3v13"/>
+          <path class="g" d="M16 16c-3 2.5-5 4-6.5 8M16 16c3 2.5 5 4 6.5 8"/>
+          <path class="g" d="M12.2 20.4c-2.6.6-4.2 1.8-5.6 4M19.8 20.4c2.6.6 4.2 1.8 5.6 4"/>
+          <path class="g" d="M16 16v13"/>
+        </svg>
+        <h4>Somatic Therapy</h4>
+        <p>Working with the adaptations that once protected you. Less talking about the
+        problem, more feeling and experiencing.</p>
+        <div class="tag">Therapy · OH AZ CO</div>
+      </div>
+      <div class="card">
+        <!-- sunburst: dotted + dashed rings, same device as the logo's radiating halo -->
+        <svg class="mk" viewBox="0 0 32 32">
+          <circle class="dotring" cx="16" cy="16" r="14.5"/>
+          <circle class="dashring" cx="16" cy="16" r="10.5"/>
+          <circle class="g" cx="16" cy="16" r="5"/>
+          <circle class="c" cx="16" cy="16" r="1.1" style="fill:var(--clay)"/>
+        </svg>
+        <h4>Sound Healing</h4>
+        <p>Rest, regulation, and integration without needing to talk.</p>
+        <div class="tag">Wellness · Nationwide</div>
+      </div>
+      <div class="card">
+        <!-- laurel sprig: the flourish under her wordmark, mirrored -->
+        <svg class="mk" viewBox="0 0 32 32">
+          <path class="g" d="M16 28C11 24 7.5 19 7 12"/>
+          <path class="g" d="M16 28c5-4 8.5-9 9-16"/>
+          <path class="g" d="M9.2 17.6c-2.4-.6-3.6-2.2-3.4-4.6 2.4.4 3.6 2 3.4 4.6zM12 22.4c-2.4-.6-3.6-2.2-3.4-4.6 2.4.4 3.6 2 3.4 4.6z"/>
+          <path class="g" d="M22.8 17.6c2.4-.6 3.6-2.2 3.4-4.6-2.4.4-3.6 2-3.4 4.6zM20 22.4c2.4-.6 3.6-2.2 3.4-4.6-2.4.4-3.6 2-3.4 4.6z"/>
+          <circle class="c" cx="16" cy="6.4" r="1.3" style="fill:var(--clay-soft)"/>
+        </svg>
+        <h4>Workshops</h4>
+        <p>Authentic community. Where self-trust gets practiced with other people in the room.</p>
+        <div class="tag">Wellness · Coming soon</div>
+      </div>
+    </div>
+    <p class="verdict"><span class="p"></span>Reads as custom because it is derived from her
+    identity rather than an icon library. Costs a little drawing time and needs her sign-off that
+    it feels like her brand.</p>
+  </div>
+</section>
+
+<!-- ============ OPTION 3 ============ -->
+<section class="opt">
+  <div class="wrap">
+    <div class="opt-head"><span class="num">Option 03</span><h2>Chapter opener</h2></div>
+    <p class="opt-note">Centered, book-like. The only ornament is the dot-and-rule divider that
+    already sits under her wordmark. Treats each offering as a page in a book rather than a
+    product in a grid.</p>
+    <div class="grid">
+      <div class="card o-card">
+        <svg class="orn" viewBox="0 0 96 14">
+          <path d="M2 7h34M60 7h34"/><circle cx="48" cy="7" r="2.2" style="fill:var(--clay-soft);stroke:none"/>
+        </svg>
+        <div class="kick">Stage II</div>
+        <h4>Somatic Therapy</h4>
+        <div class="o-rule"></div>
+        <p>Less talking about the problem, more feeling and experiencing.</p>
+      </div>
+      <div class="card o-card">
+        <svg class="orn" viewBox="0 0 96 14">
+          <path d="M2 7h34M60 7h34"/><circle cx="48" cy="7" r="2.2" style="fill:var(--clay-soft);stroke:none"/>
+        </svg>
+        <div class="kick">Stage III</div>
+        <h4>Sound Healing</h4>
+        <div class="o-rule"></div>
+        <p>Rest, regulation, and integration without needing to talk.</p>
+      </div>
+      <div class="card o-card">
+        <svg class="orn" viewBox="0 0 96 14">
+          <path d="M2 7h34M60 7h34"/><circle cx="48" cy="7" r="2.2" style="fill:var(--clay-soft);stroke:none"/>
+        </svg>
+        <div class="kick">Stage V</div>
+        <h4>Workshops</h4>
+        <div class="o-rule"></div>
+        <p>Authentic community, where self-trust gets practiced with others.</p>
+      </div>
+    </div>
+    <p class="verdict"><span class="p"></span>Quietest and most editorial. Suits her slow,
+    somatic tone. Weakness: three centered cards in a row can feel static, and it gives you
+    nowhere to put the availability badge without crowding.</p>
+  </div>
+</section>
+
+<!-- ============ OPTION 4 ============ -->
+<section class="opt">
+  <div class="wrap">
+    <div class="opt-head"><span class="num">Option 04</span><h2>Photographic</h2></div>
+    <p class="opt-note">Real imagery instead of marks: hands on a bowl, light in the room she
+    practices in, texture. Shown here with the ambient still as a stand-in so you can judge the
+    layout, not the pictures.</p>
+    <div class="grid">
+      <div class="card p-card">
+        <div class="p-img"><span class="p-tbd">Needs real photo</span><img src="media/ambient-poster.jpg" alt=""></div>
+        <div class="p-body">
+          <h4>Somatic Therapy</h4>
+          <p>Working with the adaptations that once protected you.</p>
+          <div class="tag">Therapy · OH AZ CO</div>
+        </div>
+      </div>
+      <div class="card p-card">
+        <div class="p-img"><span class="p-tbd">Needs real photo</span><img src="media/ambient-poster.jpg" alt=""></div>
+        <div class="p-body">
+          <h4>Sound Healing</h4>
+          <p>Rest, regulation, and integration without needing to talk.</p>
+          <div class="tag">Wellness · Nationwide</div>
+        </div>
+      </div>
+      <div class="card p-card">
+        <div class="p-img"><span class="p-tbd">Needs real photo</span><img src="media/ambient-poster.jpg" alt=""></div>
+        <div class="p-body">
+          <h4>Workshops</h4>
+          <p>Authentic community, practiced with other people in the room.</p>
+          <div class="tag">Wellness · Coming soon</div>
+        </div>
+      </div>
+    </div>
+    <p class="verdict"><span class="p"></span>Highest ceiling by far, and the only option that
+    shows a prospective client what the room actually feels like. Also the only one that depends
+    on something you do not have yet. Stock imagery in this category is where cheesy lives, so
+    this is worth doing only with her own photos.</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  Tell me which one and I will apply it across the homepage and the Reconnect page.
+  Options 01 and 02 combine well: numeral on the card, derived mark on the offering page.
+</footer>
+
+</body>
+</html>

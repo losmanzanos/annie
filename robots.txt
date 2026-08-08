@@ -1,0 +1,5 @@
+# PREVIEW ONLY. REPLACE BEFORE LAUNCH.
+# At launch this becomes:  User-agent: *  /  Allow: /
+# and add:                 Sitemap: https://rootedresonancecoaching.com/sitemap.xml
+User-agent: *
+Disallow: /

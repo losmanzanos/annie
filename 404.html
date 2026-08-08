@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Off the path | Rooted Resonance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C1210;--ink-2:#121A16;--ink-3:#1A231D;
+  --cream:#EEEBE0;--cream-dim:rgba(238,235,224,.62);--cream-faint:rgba(238,235,224,.30);
+  --moss:#7C9A73;--moss-soft:#9CB893;--forest:#3C5145;
+  --clay:#C0714E;--clay-soft:#D9906E;--sage:#8D9E86;--gold:#D8B584;
+  --rule:rgba(238,235,224,.13);
+  --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);font-weight:300;
+  font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  min-height:100vh;display:flex;flex-direction:column}
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.32;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px;width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.06;letter-spacing:-.015em}
+.eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--moss-soft)}
+em{font-style:italic}
+
+nav{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;
+  justify-content:space-between;padding:26px 40px}
+/* LOGO SLOT: swap .glyph for <img src="media/logo.svg" class="glyph"> when the real file arrives */
+.mark{display:inline-flex;align-items:center;gap:13px;font-family:var(--display);
+  font-size:21px;letter-spacing:.16em;text-transform:uppercase}
+.mark .glyph{height:40px;width:auto;flex:none;display:block;
+  transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.mark:hover .glyph{transform:scale(1.06)}
+.mark span{color:var(--moss-soft)}
+.navlinks{display:flex;gap:36px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim)}
+.navlinks a{position:relative;padding-bottom:3px;transition:color .3s}
+.navlinks a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--moss);transition:width .4s}
+.navlinks a:hover{color:var(--cream)}.navlinks a:hover::after{width:100%}
+@media(max-width:900px){.navlinks{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 34px;border-radius:999px;
+  font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;transition:.4s cubic-bezier(.16,1,.3,1)}
+.btn-solid{background:var(--clay);color:#140F0B;border:1px solid var(--clay)}
+.btn-solid:hover{background:var(--clay-soft);transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(192,113,78,.7)}
+.btn-ghost{border:1px solid var(--rule);color:var(--cream-dim)}
+.btn-ghost:hover{border-color:var(--moss);color:var(--cream);transform:translateY(-2px)}
+.btn .arw{transition:transform .4s}.btn:hover .arw{transform:translateX(5px)}
+
+/* ---------- stage ---------- */
+main{flex:1;display:flex;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-46px,42px) scale(1.12)}}
+
+.stage{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+@media(max-width:940px){.stage{grid-template-columns:1fr;gap:54px}}
+
+.big{font-size:clamp(4rem,11vw,9rem);margin:24px 0 0}
+.copy{margin-top:32px;max-width:500px;color:var(--cream-dim);font-size:18px}
+.copy p+p{margin-top:20px}
+.pull{font-family:var(--display);font-style:italic;font-size:1.45rem;color:var(--cream);
+  margin-top:30px;padding-left:20px;border-left:1px solid var(--moss);line-height:1.45}
+.acts{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap}
+
+/* wandering dot illustration */
+.lost{position:relative;display:grid;place-items:center;min-height:340px}
+.lost svg{width:100%;max-width:400px;overflow:visible}
+.trail{fill:none;stroke:var(--moss);stroke-width:1.2;opacity:.45;
+  stroke-dasharray:6 7;stroke-linecap:round;
+  animation:march 24s linear infinite}
+@keyframes march{to{stroke-dashoffset:-260}}
+.home-ring{fill:none;stroke:rgba(156,184,147,.3);stroke-width:1}
+.home-ring.p{transform-origin:280px 250px;animation:pulseRing 6s ease-out infinite}
+.home-ring.p2{transform-origin:280px 250px;animation:pulseRing 6s ease-out infinite 3s}
+@keyframes pulseRing{0%{transform:scale(.5);opacity:0}22%{opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.home-dot{fill:var(--moss)}
+.wanderer{fill:var(--clay);filter:drop-shadow(0 0 14px rgba(192,113,78,.75));
+  offset-path:path("M40 40 C 120 10, 60 130, 150 120 S 40 210, 130 230 S 250 150, 200 60 S 320 90, 300 170 S 210 300, 280 250");
+  animation:wander 22s cubic-bezier(.45,.05,.55,.95) infinite}
+@keyframes wander{0%{offset-distance:0%}88%,100%{offset-distance:100%}}
+.lost-lbl{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-faint);white-space:nowrap}
+
+/* ---------- recovery rail ---------- */
+.recover{border-top:1px solid var(--rule);background:var(--ink-2);padding:66px 0 74px;position:relative;z-index:2}
+.rec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:38px}
+.rec-head h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
+.rec-head p{font-size:14px;color:var(--cream-dim);max-width:330px}
+.rail{position:relative;display:grid;grid-template-columns:repeat(5,1fr)}
+.rail::before{content:'';position:absolute;top:22px;left:9%;right:9%;height:1px;
+  background:linear-gradient(90deg,var(--forest),var(--moss),var(--gold),var(--clay));opacity:.55}
+.st{text-align:center;padding:0 8px}
+.st .node{width:44px;height:44px;margin:0 auto 18px;border-radius:50%;border:1px solid var(--rule);
+  background:var(--ink-2);display:grid;place-items:center;position:relative;z-index:2;
+  font-family:var(--display);font-size:13.5px;color:var(--cream-faint);transition:.5s cubic-bezier(.16,1,.3,1)}
+.st .nm{font-family:var(--display);font-size:clamp(1.1rem,1.9vw,1.45rem);color:var(--cream-dim);transition:color .4s}
+.st:hover .node{background:var(--moss);border-color:var(--moss);color:#0E140F;transform:translateY(-3px)}
+.st:hover .nm{color:var(--cream)}
+@media(max-width:820px){.rail{grid-template-columns:repeat(2,1fr);gap:30px 10px}.rail::before{display:none}}
+
+footer{border-top:1px solid var(--rule);padding:44px 0;position:relative;z-index:2}
+.f-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center;
+  font-size:12.5px;letter-spacing:.1em;color:var(--cream-faint)}
+.f-links{display:flex;gap:28px}.f-links a:hover{color:var(--cream-dim)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="mark">
+    <img class="glyph" src="media/logo-mark.png" alt="">
+    <span style="color:var(--cream)">Rooted</span> <span>Resonance</span></a>
+  <div class="navlinks">
+    <a href="index.html#framework">The Framework</a>
+    <a href="index.html#offerings">Offerings</a>
+    <a href="blog.html">Journal</a>
+    <a href="reconnect.html">Begin</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap stage">
+    <div>
+      <div class="eyebrow">Error 404 &nbsp;·&nbsp; Page not found</div>
+      <h1 class="big">You've wandered<br><em>off the path.</em></h1>
+      <div class="copy">
+        <p>This page doesn't exist, or it moved, or it never did. Either way,
+        you're somewhere that isn't where you meant to be.</p>
+        <p>Which, if we're being honest, is a fairly familiar feeling.</p>
+      </div>
+      <p class="pull">Getting lost is not a failure of navigation.<br>
+      It's usually the first honest signal.</p>
+      <div class="acts">
+        <a href="index.html" class="btn btn-solid">Return home <span class="arw">→</span></a>
+        <a href="reconnect.html" class="btn btn-ghost">Or start at Reconnect</a>
+      </div>
+    </div>
+
+    <div class="lost">
+      <svg viewBox="0 0 340 300" aria-hidden="true">
+        <path class="trail" d="M40 40 C 120 10, 60 130, 150 120 S 40 210, 130 230 S 250 150, 200 60 S 320 90, 300 170 S 210 300, 280 250"/>
+        <circle class="home-ring p" cx="280" cy="250" r="26"/>
+        <circle class="home-ring p2" cx="280" cy="250" r="26"/>
+        <circle class="home-ring" cx="280" cy="250" r="15"/>
+        <circle class="home-dot" cx="280" cy="250" r="4.5"/>
+        <circle class="wanderer" r="5.5"/>
+      </svg>
+      <div class="lost-lbl">The long walk back</div>
+    </div>
+  </div>
+</main>
+
+<section class="recover">
+  <div class="wrap">
+    <div class="rec-head">
+      <div>
+        <div class="eyebrow">Find your way</div>
+        <h2 style="margin-top:14px">Pick up the path anywhere.</h2>
+      </div>
+      <p>You don't have to start at the beginning. Choose the stage that sounds like where you are.</p>
+    </div>
+    <div class="rail">
+      <a class="st" href="index.html#framework"><span class="node">I</span><span class="nm">Awaken</span></a>
+      <a class="st" href="index.html#framework"><span class="node">II</span><span class="nm">Understand</span></a>
+      <a class="st" href="reconnect.html"><span class="node">III</span><span class="nm">Reconnect</span></a>
+      <a class="st" href="index.html#framework"><span class="node">IV</span><span class="nm">Become</span></a>
+      <a class="st" href="index.html#framework"><span class="node">V</span><span class="nm">Relate</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f-in">
+    <div>Annie Memmott, LPC &nbsp;·&nbsp; Licensed in OH, AZ &amp; CO</div>
+    <div class="f-links">
+      <a href="index.html#framework">Framework</a>
+      <a href="index.html#offerings">Offerings</a>
+      <a href="blog.html">Journal</a>
+      <a href="reconnect.html">Begin</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

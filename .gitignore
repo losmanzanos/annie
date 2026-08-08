@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.netlify/
+.env
+.env.*
+
+# scratch renders from the logo knockout, not deliverables
+media/prev-logo-*.jpg
