@@ -93,3 +93,25 @@ launch commit, or move them into a `_design/` folder.
 - [ ] Confirm licensure wording: currently OH, AZ, CO on clinical services
 - [ ] Swap `media/logo-mark.png` for a vector once she supplies one
 - [ ] Self host the ambient video, already done, confirm it is not still hotlinked
+
+## Note: GitHub Pages preview
+
+`_headers` and `netlify.toml` are Netlify features. GitHub Pages ignores both,
+and `robots.txt` under `/annie/` is never read because robots.txt is only
+honoured at the domain root (`losmanzanos.github.io/robots.txt`).
+
+So on Pages, indexing is blocked by a per page meta tag instead:
+
+```html
+<meta name="robots" content="noindex, nofollow">
+```
+
+Present in every HTML file, each marked `PREVIEW ONLY`. Remove them at launch
+or the production site will be invisible to Google. Find them with:
+
+```bash
+grep -rn "noindex" *.html
+```
+
+Also on Pages: clean URLs like `/reconnect` do not work, so send links ending
+in `.html`. The custom 404 does work, verified returning 404 with the styled page.
