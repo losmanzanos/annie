@@ -308,8 +308,6 @@ footer{border-top:1px solid var(--rule);padding:64px 0 40px;margin-top:auto}
 :focus-visible{outline:2px solid var(--moss-soft);outline-offset:3px}
 .f-top{grid-template-columns:1.25fr 1fr 1fr 1fr 1fr}
 @media(max-width:1040px){.f-top{grid-template-columns:1fr 1fr 1fr}}
-@media(max-width:700px){.f-top{grid-template-columns:1fr 1fr}}
-@media(max-width:460px){.f-top{grid-template-columns:1fr}}
 
 /* ============================================================
    LIGHT SECTIONS. a tonal break so the site is not dark end to end
@@ -472,4 +470,30 @@ img{max-width:100%}
 @media(max-width:760px){
   .trail,.wanderer,.home-ring.p,.home-ring.p2,.viz circle{animation:none}
   .wanderer{offset-distance:88%}
+}
+
+
+/* ---------------- FOOTER ON MOBILE ----------------
+   Five stacked groups made this endless. Brand sits full width, then the four
+   link groups run two up, so nothing is hidden but the height roughly halves. */
+@media(max-width:760px){
+  footer{padding:44px 0 28px}
+  .f-top{grid-template-columns:1fr 1fr;gap:28px 18px;padding-bottom:30px}
+  .f-brand{grid-column:1 / -1;display:grid;grid-template-columns:auto 1fr;
+    gap:0 18px;align-items:center}
+  .f-seal{width:104px;margin:0}
+  .f-brand p{font-size:13px;line-height:1.55;max-width:none;margin:0}
+  .f-contact{margin-top:6px}
+  .f-contact a{font-size:15px}
+  .f-brand a.social{margin-top:4px;font-size:13px}
+  .f-brand .f-contact,.f-brand a.social{grid-column:2}
+  .f-col h5{margin-bottom:8px;font-size:10px}
+  .f-col a{padding:6px 0;font-size:13.5px}
+  .f-scope{font-size:11.5px;line-height:1.6;padding-bottom:20px}
+  .f-bottom{padding-top:18px;gap:6px;font-size:11px}
+}
+@media(max-width:380px){
+  .f-brand{grid-template-columns:1fr}
+  .f-brand .f-contact,.f-brand a.social{grid-column:1}
+  .f-seal{margin-bottom:12px}
 }
