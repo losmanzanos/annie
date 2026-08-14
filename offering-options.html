@@ -10,7 +10,7 @@
 <style>
 :root{
   --ink:#0C1210;--ink-2:#121A16;--ink-3:#1A231D;
-  --cream:#EEEBE0;--cream-dim:rgba(238,235,224,.62);--cream-faint:rgba(238,235,224,.30);
+  --cream:#EEEBE0;--cream-dim:rgba(238,235,224,.72);--cream-faint:rgba(238,235,224,.52);
   --moss:#7C9A73;--moss-soft:#9CB893;--forest:#3C5145;
   --clay:#C0714E;--clay-soft:#D9906E;--sage:#8D9E86;--gold:#D8B584;
   --rule:rgba(238,235,224,.13);
@@ -19,9 +19,6 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--ink);color:var(--cream);font-family:var(--body);font-weight:300;
   font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
-body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.3;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay}
 .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
 h1,h2,h3,h4{font-family:var(--display);font-weight:300;line-height:1.1;letter-spacing:-.015em}
 .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--moss-soft)}

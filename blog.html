@@ -2,18 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("js");</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- PREVIEW ONLY: remove this line before launch -->
 <meta name="robots" content="noindex, nofollow">
 <title>Journal | Rooted Resonance | Annie Memmott, LPC</title>
 <meta name="description" content="Notes on somatic work, nervous system regulation, and coming home to yourself. Written by Annie Memmott, LPC.">
+<link rel="canonical" href="https://www.rootedresonancecoaching.com/blog.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rooted Resonance">
+<meta property="og:title" content="Journal | Rooted Resonance | Annie Memmott, LPC">
+<meta property="og:description" content="Notes on somatic work, nervous system regulation, and coming home to yourself. Written by Annie Memmott, LPC.">
+<meta property="og:url" content="https://www.rootedresonancecoaching.com/blog.html">
+<meta property="og:image" content="https://www.rootedresonancecoaching.com/media/logo-full.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Journal | Rooted Resonance | Annie Memmott, LPC">
+<meta name="twitter:description" content="Notes on somatic work, nervous system regulation, and coming home to yourself. Written by Annie Memmott, LPC.">
+<meta name="twitter:image" content="https://www.rootedresonancecoaching.com/media/logo-full.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0C1210;--ink-2:#121A16;--ink-3:#1A231D;
-  --cream:#EEEBE0;--cream-dim:rgba(238,235,224,.62);--cream-faint:rgba(238,235,224,.30);
+  --cream:#EEEBE0;--cream-dim:rgba(238,235,224,.72);--cream-faint:rgba(238,235,224,.52);
   --moss:#7C9A73;--moss-soft:#9CB893;--forest:#3C5145;
   --clay:#C0714E;--clay-soft:#D9906E;--sage:#8D9E86;--gold:#D8B584;
   --rule:rgba(238,235,224,.13);
@@ -24,9 +37,6 @@ html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--cream);font-family:var(--body);font-weight:300;
   font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;
   min-height:100vh;display:flex;flex-direction:column}
-body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.32;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 40px;width:100%}
 h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.08;letter-spacing:-.015em}
@@ -56,8 +66,8 @@ nav.solid .mark .glyph{height:32px}
 .btn-ghost:hover{border-color:var(--moss);color:var(--cream);transform:translateY(-2px)}
 .btn .arw{transition:transform .4s}.btn:hover .arw{transform:translateX(5px)}
 
-.rv{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
-.rv.in{opacity:1;transform:none}
+html.js .rv{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+html.js .rv.in{opacity:1;transform:none}
 
 .head{padding:170px 0 70px}
 .head h1{font-size:clamp(3rem,8vw,6.2rem);margin-top:22px}
@@ -82,19 +92,24 @@ footer{border-top:1px solid var(--rule);padding:48px 0}
 .f-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center;
   font-size:12.5px;letter-spacing:.1em;color:var(--cream-faint)}
 .f-links{display:flex;gap:26px;flex-wrap:wrap}.f-links a:hover{color:var(--cream-dim)}
+
 </style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav id="nav">
   <a href="index.html" class="mark">
     <img class="glyph" src="media/logo-mark.png" alt="">
-    <span style="color:var(--cream)">Rooted</span> <span>Resonance</span></a>
-  <div class="navlinks">
-    <a href="index.html#framework">The Framework</a>
-    <a href="index.html#offerings">Offerings</a>
-    <a href="blog.html">Journal</a>
-    <a href="reconnect.html">Begin</a>
+    <span class="b">Rooted</span> <span class="a">Resonance</span></a>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">Menu</button>
+  <div class="navlinks" id="navlinks">
+    <a href="about.html">About</a>
+    <a href="services.html">Offerings</a>
+    <a href="index.html#framework">Framework</a>
+    <a href="blog.html" class="on">Journal</a>
+    <a href="contact.html" class="navbtn">Reach out</a>
   </div>
 </nav>
 
@@ -107,7 +122,7 @@ footer{border-top:1px solid var(--rule);padding:48px 0}
   </div>
 </header>
 
-<main>
+<main id="main">
   <div class="wrap">
     <div class="list rv">
       <a class="entry" href="blog-adaptation.html">
@@ -127,23 +142,44 @@ footer{border-top:1px solid var(--rule);padding:48px 0}
 </main>
 
 <footer>
-  <div class="wrap f-in">
-    <div>Annie Memmott, LPC &nbsp;·&nbsp; Licensed in OH, AZ &amp; CO</div>
-    <div class="f-links">
-      <a href="index.html#framework">Framework</a>
-      <a href="index.html#offerings">Offerings</a>
-      <a href="blog.html">Journal</a>
-      <a href="reconnect.html">Begin</a>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-col f-brand">
+        <img class="f-seal" src="media/logo-full.png" alt="Rooted Resonance Coaching and Therapy">
+        <p>Annie Memmott, LPC<br>Licensed in Ohio, Arizona and Colorado<br>Coaching and wellness offered nationwide.</p>
+        <p class="f-contact"><a href="tel:+15134978595">513-497-8595</a></p>
+        <a class="social" href="https://www.instagram.com/rebelhealerannie/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@rebelhealerannie</a>
+      </div>
+      <div class="f-col"><h5>Offerings</h5><a href="somatic-therapy.html">Somatic Therapy</a><a href="relational-therapy.html">Relational Therapy</a><a href="sound-healing.html">Sound Healing</a><a href="breathwork.html">Breathwork</a><a href="workshops.html">Workshops</a></div>
+      <div class="f-col"><h5>Framework</h5><a href="awaken.html">I. Awaken</a><a href="understand.html">II. Understand</a><a href="reconnect.html">III. Reconnect</a><a href="become.html">IV. Become</a><a href="relate.html">V. Relate</a></div>
+      <div class="f-col"><h5>Practice</h5><a href="about.html">About Annie</a><a href="blog.html">Journal</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      <div class="f-col"><h5>Legal</h5><a href="good-faith-estimate.html">Good Faith Estimate</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="accessibility.html">Accessibility</a></div>
+    </div>
+    <p class="f-scope">Somatic and relational therapy are psychotherapy, provided under Annie's
+    counseling licenses to residents of Ohio, Arizona and Colorado. Sound healing, breathwork,
+    coaching and workshops are wellness and educational services, available anywhere, and are not
+    psychotherapy, diagnosis or crisis care. If you are in crisis, call or text 988.</p>
+    <div class="f-bottom">
+      <div>&copy; 2026 Rooted Resonance Coaching &amp; Therapy</div>
+      <div>Become yourself. Transform everything.</div>
     </div>
   </div>
 </footer>
 
 <script>
+const b=document.getElementById('burger'),nl=document.getElementById('navlinks');
+if(b){b.addEventListener('click',()=>{const o=nl.classList.toggle('open');
+  b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu';});}
+
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
-}),{threshold:.1});
+}),{threshold:0,rootMargin:'0px 0px 260px 0px'});
+
+// failsafe: if anything goes wrong, reveal everything rather than hide it
+addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.rv:not(.in)')
+  .forEach(el=>el.classList.add('in')),700));
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
 </script>
 </body>

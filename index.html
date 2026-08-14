@@ -2,11 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("js");</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- PREVIEW ONLY: remove this line before launch -->
 <meta name="robots" content="noindex, nofollow">
 <title>Rooted Resonance | Annie Memmott, LPC | Therapy, Sound Healing &amp; Coaching</title>
 <meta name="description" content="Come home to yourself. Somatic and relational therapy with Annie Memmott, LPC, licensed in Colorado, Arizona and Ohio. Sound healing, breathwork and coaching available nationwide. Queer, kink and sex positive, neurodivergent affirming.">
+<link rel="canonical" href="https://www.rootedresonancecoaching.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rooted Resonance">
+<meta property="og:title" content="Rooted Resonance | Annie Memmott, LPC | Therapy, Sound Healing &amp; Coaching">
+<meta property="og:description" content="Come home to yourself. Somatic and relational therapy with Annie Memmott, LPC, licensed in Colorado, Arizona and Ohio. Sound healing, breathwork and coaching available nationwide. Queer, kink and sex positive, neurodivergent affirming.">
+<meta property="og:url" content="https://www.rootedresonancecoaching.com/">
+<meta property="og:image" content="https://www.rootedresonancecoaching.com/media/logo-full.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rooted Resonance | Annie Memmott, LPC | Therapy, Sound Healing &amp; Coaching">
+<meta name="twitter:description" content="Come home to yourself. Somatic and relational therapy with Annie Memmott, LPC, licensed in Colorado, Arizona and Ohio. Sound healing, breathwork and coaching available nationwide. Queer, kink and sex positive, neurodivergent affirming.">
+<meta name="twitter:image" content="https://www.rootedresonancecoaching.com/media/logo-full.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -16,8 +29,8 @@
   --ink-2:#121A16;
   --ink-3:#1A231D;
   --cream:#EEEBE0;
-  --cream-dim:rgba(238,235,224,.62);
-  --cream-faint:rgba(238,235,224,.30);
+  --cream-dim:rgba(238,235,224,.72);
+  --cream-faint:rgba(238,235,224,.52);
   --moss:#7C9A73;
   --moss-soft:#9CB893;
   --forest:#3C5145;
@@ -35,11 +48,6 @@ body{
   background:var(--ink);color:var(--cream);
   font-family:var(--body);font-weight:300;font-size:17px;line-height:1.75;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
-body::after{
-  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.32;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay;
 }
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
@@ -151,15 +159,16 @@ nav.solid .mark .glyph{height:32px}
 @media(max-width:1180px),(max-height:760px){.scroll-hint{display:none}}
 @keyframes slide{0%,100%{opacity:.25;transform:scaleY(.55);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
 
-.rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
-.rv.in{opacity:1;transform:none}
+html.js .rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+html.js .rv.in{opacity:1;transform:none}
 
 /* ---------- INTRO ---------- */
 .intro{padding:150px 0 120px;position:relative}
 .intro .lead{
-  font-family:var(--display);font-size:clamp(1.75rem,3.4vw,2.7rem);line-height:1.34;
-  letter-spacing:-.01em;
+  font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.75rem);line-height:1.3;
+  letter-spacing:-.01em;max-width:19ch;position:relative;padding-top:30px;
 }
+.intro .lead::before{content:'';position:absolute;top:0;left:0;width:54px;height:1px;background:var(--clay)}
 .intro p+p{margin-top:26px}
 .intro .body{margin-top:40px;color:var(--cream-dim);max-width:640px}
 .who{margin-top:46px;padding-top:34px;border-top:1px solid var(--rule);max-width:640px}
@@ -299,7 +308,7 @@ nav.solid .mark .glyph{height:32px}
 .j-card:hover .arw{transform:translateX(9px)}
 
 /* ---------- TESTIMONIAL ---------- */
-.testi{padding:130px 0}
+.testi{padding:120px 0}
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:52px;margin-top:52px}
 @media(max-width:1040px){.tgrid{grid-template-columns:1fr;gap:44px;max-width:620px}}
 .t blockquote{font-family:var(--display);font-size:1.4rem;line-height:1.5;font-style:italic;color:var(--cream-dim)}
@@ -315,21 +324,53 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
 .f-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center;font-size:12.5px;letter-spacing:.1em;color:var(--cream-faint)}
 .f-links{display:flex;gap:26px;flex-wrap:wrap}
 .f-links a:hover{color:var(--cream-dim)}
+
+
+.stagelink{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--moss-soft);
+  border-bottom:1px solid rgba(156,184,147,.4);padding-bottom:3px;transition:.3s}
+.stagelink:hover{color:var(--cream);border-color:var(--cream)}
+
+@media(max-width:760px){
+  .intro{padding:70px 0 60px}
+  .intro .lead{font-size:1.6rem;max-width:100%;padding-top:24px}
+  .intro .body{margin-top:28px}
+  .who{margin-top:34px;padding-top:26px}
+  .framework{padding:70px 0 76px}
+  .fw-head h2{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .rail{margin-bottom:38px}
+  .panel-l,.panel-r{padding:30px 24px}
+  .offerings{padding:70px 0 20px}
+  .scope{padding:40px 0 70px}
+  .journal{padding:70px 0}
+  .j-card{padding:26px 0}
+  .testi{padding:70px 0}
+  .tgrid{gap:34px;margin-top:34px}
+  .hero{min-height:auto;padding:120px 0 70px}
+  .hero-sub{font-size:16.5px;margin-top:24px}
+  .hero-cta{margin-top:32px;gap:12px}
+}
 </style>
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["ProfessionalService","MedicalBusiness"],"name":"Rooted Resonance Coaching & Therapy","url":"https://www.rootedresonancecoaching.com/","image":"https://www.rootedresonancecoaching.com/media/logo-full.png","logo":"https://www.rootedresonancecoaching.com/media/logo-full.png","telephone":"+1-513-497-8595","email":"rebelhealerannie@gmail.com","sameAs":["https://www.instagram.com/rebelhealerannie/"],"slogan":"Become yourself. Transform everything.","description":"Somatic and relational therapy with Annie Memmott, LPC, licensed in Ohio, Arizona and Colorado. Sound healing, breathwork and workshops available nationwide. Queer, ethically non monogamous, kink and sex positive, neurodivergent affirming.","founder":{"@type":"Person","name":"Annie Memmott","honorificSuffix":"LPC","jobTitle":"Licensed Professional Counselor","knowsAbout":["Somatic therapy","Relational therapy","Nervous system regulation","Sound healing","Breathwork","LGBTQIA+ affirming therapy","Ethical non monogamy","Kink aware practice","Neurodivergent affirming care"]},"areaServed":[{"@type":"State","name":"Ohio"},{"@type":"State","name":"Arizona"},{"@type":"State","name":"Colorado"},{"@type":"Country","name":"United States"}],"priceRange":"$60-$150","hasOfferCatalog":{"@type":"OfferCatalog","name":"Offerings","itemListElement":[{"@type":"Offer","price":"150","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Somatic Therapy","serviceType":"Psychotherapy","areaServed":"OH, AZ, CO"}},{"@type":"Offer","price":"150","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Relational Therapy","serviceType":"Psychotherapy","areaServed":"OH, AZ, CO"}},{"@type":"Offer","price":"60","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Sound Healing","serviceType":"Wellness"}},{"@type":"Offer","price":"75","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Breathwork","serviceType":"Wellness"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Workshops","serviceType":"Wellness"}}]}}</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav id="nav">
-  <a href="#top" class="mark">
+  <a href="index.html" class="mark">
     <img class="glyph" src="media/logo-mark.png" alt="">
-    <span style="color:var(--cream)">Rooted</span> <span>Resonance</span></a>
-  <div class="navlinks">
-    <a href="#framework">The Framework</a>
-    <a href="#offerings">Offerings</a>
+    <span class="b">Rooted</span> <span class="a">Resonance</span></a>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">Menu</button>
+  <div class="navlinks" id="navlinks">
+    <a href="about.html">About</a>
+    <a href="services.html">Offerings</a>
+    <a href="index.html#framework">Framework</a>
     <a href="blog.html">Journal</a>
-    <a href="reconnect.html">Begin</a>
+    <a href="contact.html" class="navbtn">Reach out</a>
   </div>
 </nav>
+
+<main id="main">
 
 <!-- HERO -->
 <header class="hero" id="top">
@@ -356,7 +397,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
     </p>
     <div class="hero-cta">
       <a href="#framework" class="btn btn-solid">Find where you are <span class="arw">→</span></a>
-      <a href="#offerings" class="btn btn-ghost">Explore offerings</a>
+      <a href="services.html" class="btn btn-ghost">Explore offerings</a>
     </div>
   </div>
   <div class="scroll-hint"><span>Scroll</span><span class="bar"></span></div>
@@ -387,6 +428,25 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
       worked in private practice serving LGBTQIA+, neurodivergent, and kinky communities,
       assisting people in and out of relationships of all kinds to find who they are in the
       midst of feeling pressured to be like everyone else.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="meet">
+  <div class="wrap meet-grid">
+    <figure class="meet-photo rv">
+      <img src="media/annie-portrait.jpg" width="1000" height="1250" loading="lazy"
+           alt="Annie Memmott standing in a slot canyon, looking up toward the light.">
+    </figure>
+    <div class="meet-copy rv">
+      <div class="eyebrow">Meet Annie</div>
+      <h2>I knew who I needed to be for other people.</h2>
+      <p>Before I ever came to know how to be myself. That question, who am I when I am no
+      longer performing for belonging, became the foundation for Rooted Resonance.</p>
+      <p class="meet-cred">Annie Memmott, Licensed Professional Counselor<br>
+      Ohio &nbsp;·&nbsp; Arizona &nbsp;·&nbsp; Colorado</p>
+      <a href="about.html" class="btn btn-ghost">More about Annie</a>
     </div>
   </div>
 </section>
@@ -439,7 +499,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
     <p class="track-sub rv">Psychotherapy provided under my Ohio, Arizona and Colorado counseling
     licenses, available to residents of those states.</p>
     <div class="off-grid rv">
-      <a class="off" href="404.html">
+      <a class="off" href="somatic-therapy.html">
         <!-- somatic: a plumb line coming to rest. settling, and a nod to pendulation -->
         <svg class="ico" viewBox="0 0 32 32">
           <path class="g" d="M16 3v16.4"/>
@@ -452,7 +512,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
         more feeling and experiencing.</p>
         <span class="badge clin"><span class="pip"></span>Therapy · OH AZ CO</span>
       </a>
-      <a class="off" href="404.html">
+      <a class="off" href="relational-therapy.html">
         <!-- relational: three overlapping fields, not a pair -->
         <svg class="ico" viewBox="0 0 32 32">
           <circle class="g" cx="12.4" cy="13.2" r="7.4"/>
@@ -473,7 +533,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
     <p class="track-sub rv">Educational and experiential work. Not psychotherapy, and not
     limited by state lines.</p>
     <div class="off-grid three rv">
-      <a class="off" href="reconnect.html">
+      <a class="off" href="sound-healing.html">
         <svg class="ico" viewBox="0 0 32 32">
           <circle class="g" cx="16" cy="16" r="5"/><circle class="g" cx="16" cy="16" r="10"/>
           <circle class="f" cx="16" cy="16" r="15"/>
@@ -482,7 +542,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
         <p>Rest, regulation, and integration without needing to talk.</p>
         <span class="badge well"><span class="pip"></span>Wellness · Nationwide</span>
       </a>
-      <a class="off" href="reconnect.html#book">
+      <a class="off" href="breathwork.html">
         <svg class="ico" viewBox="0 0 32 32">
           <path class="g" d="M3 20c4.8-11 9.6 6.4 12.8-4.8C19 4 23.8 12 28.8 8.8"/>
           <path class="f" d="M3 26.4c4.8-7.2 9.6 4 12.8-3.2 3.2-7.2 8 5.6 13-2.4"/>
@@ -492,7 +552,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
         rather than think your way around it.</p>
         <span class="badge well"><span class="pip"></span>Wellness · Nationwide</span>
       </a>
-      <a class="off" href="404.html">
+      <a class="off" href="workshops.html">
         <svg class="ico" viewBox="0 0 32 32">
           <circle class="g" cx="10.4" cy="12" r="4"/><circle class="g" cx="21.6" cy="12" r="4"/>
           <path class="f" d="M4 26.4c0-4.8 2.9-7.2 6.4-7.2s6.4 2.4 6.4 7.2M15.2 26.4c0-4.8 2.9-7.2 6.4-7.2s6.4 2.4 6.4 7.2"/>
@@ -541,7 +601,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
         <div class="eyebrow">Journal</div>
         <h2 style="margin-top:16px">Notes from the long walk back</h2>
       </div>
-      <a href="blog.html" class="btn btn-ghost">All entries <span class="arw">→</span></a>
+      <a href="blog.html" class="btn btn-ghost">All entries</a>
     </div>
     <a class="j-card rv" href="blog-adaptation.html">
       <span class="j-date">Aug 2026</span>
@@ -552,7 +612,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testi">
+<section class="testi cream">
   <div class="wrap">
     <div class="eyebrow rv">In Their Words</div>
     <div class="tgrid">
@@ -585,60 +645,77 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
     <h2 class="rv" style="margin-top:20px">Become Yourself.<br><em>Transform Everything.</em></h2>
     <p class="rv">Whether you are navigating relationship challenges, rebuilding your sense of
     self, or longing to feel more at home in your own life, you are welcome here.</p>
-    <div class="rv"><a href="reconnect.html" class="btn btn-solid">See stage III &nbsp;·&nbsp; Reconnect <span class="arw">→</span></a></div>
+    <div class="rv"><a href="services.html" class="btn btn-solid">Explore the offerings <span class="arw">→</span></a></div>
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
-    <img class="seal" src="media/logo-full.png"
-         alt="Rooted Resonance Coaching and Therapy. Become yourself. Transform everything.">
-  </div>
-  <div class="wrap f-in">
-    <div>Annie Memmott, LPC &nbsp;·&nbsp; Licensed in OH, AZ &amp; CO</div>
-    <div class="f-links">
-      <a href="#framework">Framework</a><a href="#offerings">Offerings</a>
-      <a href="blog.html">Journal</a><a href="reconnect.html">Begin</a>
+    <div class="f-top">
+      <div class="f-col f-brand">
+        <img class="f-seal" src="media/logo-full.png" alt="Rooted Resonance Coaching and Therapy">
+        <p>Annie Memmott, LPC<br>Licensed in Ohio, Arizona and Colorado<br>Coaching and wellness offered nationwide.</p>
+        <p class="f-contact"><a href="tel:+15134978595">513-497-8595</a></p>
+        <a class="social" href="https://www.instagram.com/rebelhealerannie/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@rebelhealerannie</a>
+      </div>
+      <div class="f-col"><h5>Offerings</h5><a href="somatic-therapy.html">Somatic Therapy</a><a href="relational-therapy.html">Relational Therapy</a><a href="sound-healing.html">Sound Healing</a><a href="breathwork.html">Breathwork</a><a href="workshops.html">Workshops</a></div>
+      <div class="f-col"><h5>Framework</h5><a href="awaken.html">I. Awaken</a><a href="understand.html">II. Understand</a><a href="reconnect.html">III. Reconnect</a><a href="become.html">IV. Become</a><a href="relate.html">V. Relate</a></div>
+      <div class="f-col"><h5>Practice</h5><a href="about.html">About Annie</a><a href="blog.html">Journal</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      <div class="f-col"><h5>Legal</h5><a href="good-faith-estimate.html">Good Faith Estimate</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="accessibility.html">Accessibility</a></div>
+    </div>
+    <p class="f-scope">Somatic and relational therapy are psychotherapy, provided under Annie's
+    counseling licenses to residents of Ohio, Arizona and Colorado. Sound healing, breathwork,
+    coaching and workshops are wellness and educational services, available anywhere, and are not
+    psychotherapy, diagnosis or crisis care. If you are in crisis, call or text 988.</p>
+    <div class="f-bottom">
+      <div>&copy; 2026 Rooted Resonance Coaching &amp; Therapy</div>
+      <div>Become yourself. Transform everything.</div>
     </div>
   </div>
 </footer>
 
 <script>
+const b=document.getElementById('burger'),nl=document.getElementById('navlinks');
+if(b){b.addEventListener('click',()=>{const o=nl.classList.toggle('open');
+  b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu';});}
+
 const STAGES=[
- {n:'Awaken',
+ {n:'Awaken',slug:'awaken',
   felt:'Notice what is no longer working. You may not have language for it yet, only the sense that the way you have been living costs more than it gives.',
   quote:'Most arrive feeling lost, worried about the future and unsure of their place in it.',
   lbl:'Where to begin',offer:'A Conversation',track:null,
   desc:'A short conversation at no cost. Say out loud what you have been carrying and we will find the door together.',
-  meta:[['Format','Phone or video']],cta:'Reach out',href:'404.html'},
+  meta:[['Format','Phone or video']],cta:'Reach out',href:'contact.html'},
 
- {n:'Understand',
+ {n:'Understand',slug:'understand',
   felt:'Recognize the adaptations that once protected you. You begin to see that none of it started as a flaw. It started as a way to survive.',
   quote:'I knew every trauma, every trigger, I could even tell you why I did the things I did, but none of that changed anything.',
   lbl:'What supports you here',offer:'Somatic Therapy',track:'clin',
   desc:'Individual clinical work tracing where the old strategies live in the body.',
-  meta:[['Available','OH · AZ · CO']],cta:'Inquire about therapy',href:'404.html'},
+  meta:[['Available','OH · AZ · CO']],cta:'Inquire about therapy',href:'somatic-therapy.html'},
 
- {n:'Reconnect',
+ {n:'Reconnect',slug:'reconnect',
   felt:'Learn to trust your body and nervous system. This is where you stop talking about the problem and start feeling and experiencing.',
   quote:'Real change happened when I learned to listen to my body, understand my nervous system, and build a kinder more honest relationship with myself.',
   lbl:'What supports you here',offer:'Sound Healing',track:'well',
   desc:'Rest, regulation, and integration without needing to talk. You lie down, and the work happens without you having to explain anything to anyone, including yourself.',
-  meta:[['Available','Nationwide']],cta:'See this stage',href:'reconnect.html'},
+  meta:[['Available','Nationwide']],cta:'See this stage',href:'sound-healing.html'},
 
- {n:'Become',
+ {n:'Become',slug:'become',
   felt:'Discover who you are beneath old patterns. Underneath the roles you have inherited and the beliefs you have never questioned, lies your truest self.',
   quote:'This is not about fixing yourself. It is about remembering who you have always been.',
   lbl:'What supports you here',offer:'Somatic Therapy',track:'clin',
   desc:'The same container, different work. Moving from understanding the old self to practicing the true one, in real decisions and real relationships.',
-  meta:[['Available','OH · AZ · CO']],cta:'Inquire about therapy',href:'404.html'},
+  meta:[['Available','OH · AZ · CO']],cta:'Inquire about therapy',href:'somatic-therapy.html'},
 
- {n:'Relate',
+ {n:'Relate',slug:'relate',
   felt:'Create relationships rooted in authenticity and choice, built on self-trust rather than survival.',
   quote:'Who am I when I am no longer performing for belonging?',
   lbl:'What supports you here',offer:'Group Workshops',track:'well',
   desc:'Authentic community. A practice space with other people doing the same work.',
-  meta:[['Status','Waitlist open']],cta:'Join the waitlist',href:'404.html'}
+  meta:[['Status','Waitlist open']],cta:'Join the waitlist',href:'workshops.html'}
 ];
 const BADGE={clin:'<span class="badge clin"><span class="pip"></span>Therapy · OH AZ CO</span>',
              well:'<span class="badge well"><span class="pip"></span>Wellness · Nationwide</span>'};
@@ -651,6 +728,7 @@ function render(i){
       <h3>${s.n}</h3>
       <p class="felt">${s.felt}</p>
       <p class="quote">${s.quote}</p>
+      <p style="margin-top:26px"><a class="stagelink" href="${s.slug}.html">Read more about ${s.n} &rarr;</a></p>
     </div>`;
   R.innerHTML=`<div class="pane on" style="display:flex;flex-direction:column;flex:1">
       <div class="lbl">${s.lbl}</div>
@@ -677,7 +755,11 @@ addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
-}),{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+}),{threshold:0,rootMargin:'0px 0px 260px 0px'});
+
+// failsafe: if anything goes wrong, reveal everything rather than hide it
+addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.rv:not(.in)')
+  .forEach(el=>el.classList.add('in')),700));
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
 </script>
 </body>

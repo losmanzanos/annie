@@ -7,3 +7,15 @@ node_modules/
 
 # scratch renders from the logo knockout, not deliverables
 media/prev-logo-*.jpg
+
+# scratch crops from the portrait work, not deliverables
+media/annie-preview.jpg
+media/rot-cw.jpg
+media/rot-ccw.jpg
+media/upright.jpg
+media/sheet.jpg
+
+# client-facing docs and invoices stay out of the public repo
+email-annie-*.md
+invoice-*.pdf
+_ref/
