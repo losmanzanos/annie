@@ -226,9 +226,15 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
 }),{threshold:0,rootMargin:'0px 0px 260px 0px'});
 
-// failsafe: if anything goes wrong, reveal everything rather than hide it
-addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.rv:not(.in)')
-  .forEach(el=>el.classList.add('in')),700));
+// failsafe: reveal everything regardless. deliberately not tied to window.load,
+// because that waits on images and video and would keep content hidden on a slow line.
+setTimeout(function(){
+  document.querySelectorAll('.rv').forEach(function(el){
+    el.classList.add('in');
+    el.style.opacity = '1';        // inline, so no stylesheet can hide it
+    el.style.transform = 'none';
+  });
+}, 900);
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
 </script>
 </body>

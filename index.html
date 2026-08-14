@@ -85,7 +85,7 @@ nav.solid .mark .glyph{height:32px}
 
 /* ---------- HERO ---------- */
 .hero{
-  position:relative;min-height:100vh;display:flex;align-items:center;
+  position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;
   padding:140px 0 90px;overflow:hidden;
 }
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
@@ -349,6 +349,15 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
   .hero-sub{font-size:16.5px;margin-top:24px}
   .hero-cta{margin-top:32px;gap:12px}
 }
+
+/* --- mobile: drop the effects that make iOS run out of memory --- */
+@media(max-width:1000px){
+  nav.solid{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(12,18,16,.97)}
+  .navlinks{backdrop-filter:none;-webkit-backdrop-filter:none;background:#0C1210}
+  .rings{display:none}
+  .hero-vid{transform:none}
+  .hero{min-height:auto}
+}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["ProfessionalService","MedicalBusiness"],"name":"Rooted Resonance Coaching & Therapy","url":"https://www.rootedresonancecoaching.com/","image":"https://www.rootedresonancecoaching.com/media/logo-full.png","logo":"https://www.rootedresonancecoaching.com/media/logo-full.png","telephone":"+1-513-497-8595","email":"rebelhealerannie@gmail.com","sameAs":["https://www.instagram.com/rebelhealerannie/"],"slogan":"Become yourself. Transform everything.","description":"Somatic and relational therapy with Annie Memmott, LPC, licensed in Ohio, Arizona and Colorado. Sound healing, breathwork and workshops available nationwide. Queer, ethically non monogamous, kink and sex positive, neurodivergent affirming.","founder":{"@type":"Person","name":"Annie Memmott","honorificSuffix":"LPC","jobTitle":"Licensed Professional Counselor","knowsAbout":["Somatic therapy","Relational therapy","Nervous system regulation","Sound healing","Breathwork","LGBTQIA+ affirming therapy","Ethical non monogamy","Kink aware practice","Neurodivergent affirming care"]},"areaServed":[{"@type":"State","name":"Ohio"},{"@type":"State","name":"Arizona"},{"@type":"State","name":"Colorado"},{"@type":"Country","name":"United States"}],"priceRange":"$60-$150","hasOfferCatalog":{"@type":"OfferCatalog","name":"Offerings","itemListElement":[{"@type":"Offer","price":"150","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Somatic Therapy","serviceType":"Psychotherapy","areaServed":"OH, AZ, CO"}},{"@type":"Offer","price":"150","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Relational Therapy","serviceType":"Psychotherapy","areaServed":"OH, AZ, CO"}},{"@type":"Offer","price":"60","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Sound Healing","serviceType":"Wellness"}},{"@type":"Offer","price":"75","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Breathwork","serviceType":"Wellness"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Workshops","serviceType":"Wellness"}}]}}</script>
@@ -375,10 +384,9 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-bg">
-    <video class="hero-vid" id="heroVid" autoplay muted loop playsinline preload="auto"
-           poster="media/ambient-poster.jpg" aria-hidden="true">
-      <source src="media/ambient.mp4" type="video/mp4">
-    </video>
+    <video class="hero-vid" id="heroVid" muted loop playsinline preload="none"
+           poster="media/ambient-poster.jpg" aria-hidden="true"
+           data-src="media/ambient.mp4"></video>
     <div class="hero-veil"></div>
   </div>
   <svg class="rings" width="1000" height="1000" viewBox="0 0 1000 1000">
@@ -747,8 +755,26 @@ document.querySelectorAll('.stage').forEach(b=>{
 });
 render(0);
 
-const hv=document.getElementById('heroVid');
-if(hv){hv.playbackRate=.6;hv.addEventListener('loadeddata',()=>hv.playbackRate=.6);}
+// Ambient video is desktop only. On phones it pushed iOS past its memory limit and
+// Safari reloaded the tab, and it costs a visitor 631KB on cellular for decoration.
+// Everywhere else the poster frame stands in.
+(function(){
+  var v = document.getElementById('heroVid');
+  if (!v || !v.dataset.src) return;
+  var mq = function(q){ return window.matchMedia && window.matchMedia(q).matches; };
+  var conn = navigator.connection || {};
+  if (mq('(max-width: 1000px)') || mq('(pointer: coarse)')
+      || mq('(prefers-reduced-motion: reduce)')
+      || conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '')) return;
+  var s = document.createElement('source');
+  s.src = v.dataset.src; s.type = 'video/mp4';
+  v.appendChild(s);
+  v.load();
+  v.addEventListener('loadeddata', function(){
+    v.playbackRate = 0.6;
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+  }, { once: true });
+})();
 
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
@@ -757,9 +783,15 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
 }),{threshold:0,rootMargin:'0px 0px 260px 0px'});
 
-// failsafe: if anything goes wrong, reveal everything rather than hide it
-addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.rv:not(.in)')
-  .forEach(el=>el.classList.add('in')),700));
+// failsafe: reveal everything regardless. deliberately not tied to window.load,
+// because that waits on images and video and would keep content hidden on a slow line.
+setTimeout(function(){
+  document.querySelectorAll('.rv').forEach(function(el){
+    el.classList.add('in');
+    el.style.opacity = '1';        // inline, so no stylesheet can hide it
+    el.style.transform = 'none';
+  });
+}, 900);
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
 </script>
 </body>

@@ -72,7 +72,7 @@ nav.solid .mark .glyph{height:32px}
 
 /* ---------- HERO ---------- */
 .hero{
-  position:relative;min-height:100vh;display:flex;align-items:center;
+  position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;
   padding:140px 0 90px;overflow:hidden;
 }
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
@@ -342,6 +342,15 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
 .f-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center;font-size:12.5px;letter-spacing:.1em;color:var(--cream-faint)}
 .f-links{display:flex;gap:26px;flex-wrap:wrap}
 .f-links a:hover{color:var(--cream-dim)}
+
+/* --- mobile: drop the effects that make iOS run out of memory --- */
+@media(max-width:1000px){
+  nav.solid{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(12,18,16,.97)}
+  .navlinks{backdrop-filter:none;-webkit-backdrop-filter:none;background:#0C1210}
+  .rings{display:none}
+  .hero-vid{transform:none}
+  .hero{min-height:auto}
+}
 </style>
 </head>
 <body>
@@ -361,10 +370,9 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-bg">
-    <video class="hero-vid" id="heroVid" autoplay muted loop playsinline preload="auto"
-           poster="media/ambient-poster.jpg" aria-hidden="true">
-      <source src="media/ambient.mp4" type="video/mp4">
-    </video>
+    <video class="hero-vid" id="heroVid" muted loop playsinline preload="none"
+           poster="media/ambient-poster.jpg" aria-hidden="true"
+           data-src="media/ambient.mp4"></video>
     <div class="hero-veil"></div>
   </div>
   <svg class="rings" width="1000" height="1000" viewBox="0 0 1000 1000">
@@ -713,8 +721,26 @@ document.querySelectorAll('.stage').forEach(b=>{
 });
 render(0);
 
-const hv=document.getElementById('heroVid');
-if(hv){hv.playbackRate=.6;hv.addEventListener('loadeddata',()=>hv.playbackRate=.6);}
+// Ambient video is desktop only. On phones it pushed iOS past its memory limit and
+// Safari reloaded the tab, and it costs a visitor 631KB on cellular for decoration.
+// Everywhere else the poster frame stands in.
+(function(){
+  var v = document.getElementById('heroVid');
+  if (!v || !v.dataset.src) return;
+  var mq = function(q){ return window.matchMedia && window.matchMedia(q).matches; };
+  var conn = navigator.connection || {};
+  if (mq('(max-width: 1000px)') || mq('(pointer: coarse)')
+      || mq('(prefers-reduced-motion: reduce)')
+      || conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '')) return;
+  var s = document.createElement('source');
+  s.src = v.dataset.src; s.type = 'video/mp4';
+  v.appendChild(s);
+  v.load();
+  v.addEventListener('loadeddata', function(){
+    v.playbackRate = 0.6;
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+  }, { once: true });
+})();
 
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));

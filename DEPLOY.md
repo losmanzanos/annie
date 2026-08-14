@@ -329,3 +329,27 @@ lists them on Instagram but not on her own site, which may well be deliberate.
 For a practice serving LGBTQIA+ and neurodivergent clients it is a meaningful
 signal, and the natural home would be beside her name on About and in the
 footer. Her call, not ours.
+
+## Mobile reload bug, fixed
+
+**Symptom:** the homepage reloaded itself repeatedly on a phone.
+
+**Cause:** not a redirect loop. iOS Safari runs out of memory and reloads the tab.
+The homepage was asking a phone to run, all at once: a looping autoplay video with
+`preload="auto"`, a `backdrop-filter: blur(18px)` fixed nav composited over it, four
+infinite SVG ring animations, a `transform: scale()` on the video layer, and
+`playbackRate = 0.6`, which on several browsers drops video off the hardware decode
+path entirely.
+
+**Fix**
+- The video ships with **no `<source>` element**. A small script attaches it only on
+  a wide viewport with a fine pointer, no reduced-motion preference, and no Save Data
+  or 2G connection. Phones get the poster frame, which also saves a visitor 631KB of
+  cellular data for something purely decorative.
+- `backdrop-filter` disabled under 1000px, solid colours instead.
+- Ring animations, the 404 wandering dot and the resonance pulses all disabled on small screens.
+- `min-height:100svh` on the hero so the layout stops resizing every time the mobile
+  URL bar hides.
+- Reveal failsafe no longer waits on `window.load`. That event waits on images and
+  video, so on a slow connection content could stay hidden. It now runs on a plain
+  900ms timer and sets inline styles, which no stylesheet can override.
