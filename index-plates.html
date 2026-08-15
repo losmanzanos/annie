@@ -372,7 +372,8 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
   <div class="hero-bg">
     <video class="hero-vid" id="heroVid" muted loop playsinline preload="none"
            poster="media/ambient-poster.jpg" aria-hidden="true"
-           data-src="media/ambient.mp4"></video>
+           data-src="media/ambient.mp4"
+           data-src-mobile="media/ambient-mobile.mp4"></video>
     <div class="hero-veil"></div>
   </div>
   <svg class="rings" width="1000" height="1000" viewBox="0 0 1000 1000">
@@ -721,25 +722,50 @@ document.querySelectorAll('.stage').forEach(b=>{
 });
 render(0);
 
-// Ambient video is desktop only. On phones it pushed iOS past its memory limit and
-// Safari reloaded the tab, and it costs a visitor 631KB on cellular for decoration.
-// Everywhere else the poster frame stands in.
+// Hero video, with the safeguards that stop iOS reloading the tab.
+// Phones get a 358KB baseline-profile encode, desktop gets the 630KB one.
+// Never touch playbackRate on mobile: it drops video off hardware decode,
+// which is what pushed memory over the edge before.
 (function(){
   var v = document.getElementById('heroVid');
-  if (!v || !v.dataset.src) return;
+  if (!v) return;
   var mq = function(q){ return window.matchMedia && window.matchMedia(q).matches; };
   var conn = navigator.connection || {};
-  if (mq('(max-width: 1000px)') || mq('(pointer: coarse)')
-      || mq('(prefers-reduced-motion: reduce)')
-      || conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '')) return;
-  var s = document.createElement('source');
-  s.src = v.dataset.src; s.type = 'video/mp4';
-  v.appendChild(s);
-  v.load();
-  v.addEventListener('loadeddata', function(){
-    v.playbackRate = 0.6;
+
+  // Genuine opt-outs. Poster frame stands in.
+  if (mq('(prefers-reduced-motion: reduce)') || conn.saveData === true
+      || /(^|-)(2g|slow-2g)$/.test(conn.effectiveType || '')) return;
+
+  var small = mq('(max-width: 1000px)');
+  var src = small ? v.dataset.srcMobile : v.dataset.src;
+  if (!src) return;
+
+  var start = function(){
+    var s = document.createElement('source');
+    s.src = src; s.type = 'video/mp4';
+    v.appendChild(s);
+    // preload="none" means load() alone never fetches. play() is what starts it.
+    v.preload = 'auto';
+    v.load();
     var p = v.play(); if (p && p.catch) p.catch(function(){});
-  }, { once: true });
+    v.addEventListener('loadeddata', function(){
+      if (!small) v.playbackRate = 0.6;   // desktop only, keeps mobile on hardware decode
+    }, { once: true });
+
+    // Free the decoder whenever the hero is off screen. Biggest single memory win.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+          else v.pause();
+        });
+      }, { threshold: 0.01 }).observe(v.closest('.hero') || v);
+    }
+  };
+
+  // Let the page settle first so the video never competes with first paint.
+  if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 2000 });
+  else setTimeout(start, 1200);
 })();
 
 const nav=document.getElementById('nav');
