@@ -35,8 +35,8 @@
   <button class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">Menu</button>
   <div class="navlinks" id="navlinks">
     <a href="about.html">About</a>
-    <a href="services.html">Offerings</a>
-    <a href="index.html#framework" class="on">Framework</a>
+    <div class="navgrp"><a class="navtop" href="services.html">Offerings</a><div class="submenu"><a class="sub-all" href="services.html">All offerings</a><a href="somatic-therapy.html">Somatic Therapy</a><a href="relational-therapy.html">Relational Therapy</a><a href="sound-healing.html">Sound Healing</a><a href="breathwork.html">Breathwork</a><a href="workshops.html">Workshops</a></div></div>
+    <div class="navgrp"><a class="navtop on" href="framework.html">Framework</a><div class="submenu"><a class="sub-all" href="framework.html">The whole framework</a><a href="awaken.html">I. Awaken</a><a href="understand.html">II. Understand</a><a href="reconnect.html">III. Reconnect</a><a class="on" href="become.html">IV. Become</a><a href="relate.html">V. Relate</a></div></div>
     <a href="blog.html">Journal</a>
     <a href="contact.html" class="navbtn">Reach out</a>
   </div>
@@ -45,7 +45,7 @@
 <main id="main">
 <header class="phead">
   <div class="wrap phead-in rv">
-    <div class="crumb"><a href="index.html#framework">The Framework</a><span class="sep">/</span><span class="cur">Become</span></div><div class="eyebrow">Stage IV of Five</div>
+    <div class="crumb"><a href="framework.html">The Framework</a><span class="sep">/</span><span class="cur">Become</span></div><div class="eyebrow">Stage IV of Five</div>
     <h1>Become</h1>
     <p class="sub">Discover who you are beneath old patterns.</p>
   </div>
@@ -76,7 +76,7 @@
         <a class="social" href="https://www.instagram.com/rebelhealerannie/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@rebelhealerannie</a>
       </div>
       <div class="f-col"><h5>Offerings</h5><a href="somatic-therapy.html">Somatic Therapy</a><a href="relational-therapy.html">Relational Therapy</a><a href="sound-healing.html">Sound Healing</a><a href="breathwork.html">Breathwork</a><a href="workshops.html">Workshops</a></div>
-      <div class="f-col"><h5>Framework</h5><a href="awaken.html">I. Awaken</a><a href="understand.html">II. Understand</a><a href="reconnect.html">III. Reconnect</a><a href="become.html">IV. Become</a><a href="relate.html">V. Relate</a></div>
+      <div class="f-col"><h5>Framework</h5><a href="framework.html">The Framework</a><a href="awaken.html">I. Awaken</a><a href="understand.html">II. Understand</a><a href="reconnect.html">III. Reconnect</a><a href="become.html">IV. Become</a><a href="relate.html">V. Relate</a></div>
       <div class="f-col"><h5>Practice</h5><a href="about.html">About Annie</a><a href="blog.html">Journal</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
       <div class="f-col"><h5>Legal</h5><a href="good-faith-estimate.html">Good Faith Estimate</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="accessibility.html">Accessibility</a></div>
     </div>
@@ -95,8 +95,26 @@
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
 const b=document.getElementById('burger'),nl=document.getElementById('navlinks');
+function closeNav(){if(!nl)return;nl.classList.remove('open');
+  if(b){b.setAttribute('aria-expanded','false');b.textContent='Menu';}}
 if(b){b.addEventListener('click',()=>{const o=nl.classList.toggle('open');
   b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu';});}
+// the burger used to stay open after a tap. close it, and if the link is an
+// anchor on this same page, scroll there instead of reloading the document.
+if(nl){nl.addEventListener('click',function(e){
+  const a=e.target.closest('a'); if(!a) return;
+  closeNav();
+  const h=a.getAttribute('href')||'', i=h.indexOf('#');
+  if(i<0) return;
+  const here=location.pathname.split('/').pop()||'index.html';
+  if(i>0 && h.slice(0,i)!==here) return;          // different page, let it navigate
+  const target=document.getElementById(h.slice(i+1));
+  if(!target) return;
+  e.preventDefault();
+  history.replaceState(null,'',h.slice(i));
+  target.scrollIntoView({behavior:'smooth',block:'start'});
+});}
+addEventListener('keydown',function(e){if(e.key==='Escape')closeNav();});
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
 }),{threshold:0,rootMargin:'0px 0px 260px 0px'});

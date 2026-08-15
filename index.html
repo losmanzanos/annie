@@ -26,11 +26,11 @@
 <style>
 :root{
   --ink:#0C1210;
-  --ink-2:#121A16;
-  --ink-3:#1A231D;
+  --ink-2:#16211B;
+  --ink-3:#1F2C25;--ink-4:#28382E;
   --cream:#EEEBE0;
   --cream-dim:rgba(238,235,224,.72);
-  --cream-faint:rgba(238,235,224,.52);
+  --cream-faint:rgba(238,235,224,.6);
   --moss:#7C9A73;
   --moss-soft:#9CB893;
   --forest:#3C5145;
@@ -38,7 +38,7 @@
   --clay-soft:#D9906E;
   --sage:#8D9E86;
   --gold:#D8B584;
-  --rule:rgba(238,235,224,.13);
+  --rule:rgba(238,235,224,.17);
   --display:'Cormorant Garamond',Georgia,serif;
   --body:'Jost',system-ui,sans-serif;
 }
@@ -81,7 +81,6 @@ nav.solid .mark .glyph{height:32px}
 .navlinks a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--moss);transition:width .4s}
 .navlinks a:hover{color:var(--cream)}
 .navlinks a:hover::after{width:100%}
-@media(max-width:900px){.navlinks{display:none}}
 
 /* ---------- HERO ---------- */
 .hero{
@@ -149,15 +148,6 @@ nav.solid .mark .glyph{height:32px}
 .btn .arw{transition:transform .4s}
 .btn:hover .arw{transform:translateX(5px)}
 
-.scroll-hint{
-  position:absolute;bottom:44px;right:40px;z-index:3;
-  font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-faint);
-  display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;animation:fadeIn 1s 1.5s forwards;
-}
-.scroll-hint span:first-child{writing-mode:vertical-rl}
-.scroll-hint .bar{width:1px;height:52px;background:linear-gradient(var(--moss),transparent);animation:slide 2.4s ease-in-out infinite}
-@media(max-width:1180px),(max-height:760px){.scroll-hint{display:none}}
-@keyframes slide{0%,100%{opacity:.25;transform:scaleY(.55);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
 
 html.js .rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
 html.js .rv.in{opacity:1;transform:none}
@@ -372,8 +362,8 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
   <button class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">Menu</button>
   <div class="navlinks" id="navlinks">
     <a href="about.html">About</a>
-    <a href="services.html">Offerings</a>
-    <a href="index.html#framework">Framework</a>
+    <div class="navgrp"><a class="navtop" href="services.html">Offerings</a><div class="submenu"><a class="sub-all" href="services.html">All offerings</a><a href="somatic-therapy.html">Somatic Therapy</a><a href="relational-therapy.html">Relational Therapy</a><a href="sound-healing.html">Sound Healing</a><a href="breathwork.html">Breathwork</a><a href="workshops.html">Workshops</a></div></div>
+    <div class="navgrp"><a class="navtop" href="framework.html">Framework</a><div class="submenu"><a class="sub-all" href="framework.html">The whole framework</a><a href="awaken.html">I. Awaken</a><a href="understand.html">II. Understand</a><a href="reconnect.html">III. Reconnect</a><a href="become.html">IV. Become</a><a href="relate.html">V. Relate</a></div></div>
     <a href="blog.html">Journal</a>
     <a href="contact.html" class="navbtn">Reach out</a>
   </div>
@@ -409,7 +399,6 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
       <a href="services.html" class="btn btn-ghost">Explore offerings</a>
     </div>
   </div>
-  <div class="scroll-hint"><span>Scroll</span><span class="bar"></span></div>
 </header>
 
 <!-- INTRO -->
@@ -434,11 +423,12 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow">The Rooted Resonance Framework</div>
-      <h2>A Journey from<br>Adaptation to Authenticity</h2>
+      <h2>Five stages.<br>Each one has a door.</h2>
       <p>This is not about fixing yourself. It's about remembering who you have always been.
-      Five stages, and each one has a door.</p>
+      Find where you are, and what supports you there.</p>
     </div>
     <div class="stagelist"><a class="stagerow rv" href="awaken.html"><span class="sr-num">I</span><span class="sr-body"><span class="sr-name">Awaken</span><span class="sr-line">Notice what is no longer working.</span></span><span class="sr-leads">Start with a conversation</span><span class="sr-arw" aria-hidden="true">&rarr;</span></a><a class="stagerow rv" href="understand.html"><span class="sr-num">II</span><span class="sr-body"><span class="sr-name">Understand</span><span class="sr-line">Recognize the adaptations that once protected you.</span></span><span class="sr-leads">Somatic Therapy</span><span class="sr-arw" aria-hidden="true">&rarr;</span></a><a class="stagerow rv" href="reconnect.html"><span class="sr-num">III</span><span class="sr-body"><span class="sr-name">Reconnect</span><span class="sr-line">Learn to trust your body and nervous system.</span></span><span class="sr-leads">Sound Healing &amp; Breathwork</span><span class="sr-arw" aria-hidden="true">&rarr;</span></a><a class="stagerow rv" href="become.html"><span class="sr-num">IV</span><span class="sr-body"><span class="sr-name">Become</span><span class="sr-line">Discover who you are beneath old patterns.</span></span><span class="sr-leads">Somatic Therapy</span><span class="sr-arw" aria-hidden="true">&rarr;</span></a><a class="stagerow rv" href="relate.html"><span class="sr-num">V</span><span class="sr-body"><span class="sr-name">Relate</span><span class="sr-line">Create relationships rooted in authenticity and choice.</span></span><span class="sr-leads">Relational Therapy &amp; Workshops</span><span class="sr-arw" aria-hidden="true">&rarr;</span></a></div>
+    <p class="rv" style="margin-top:30px"><a href="framework.html" class="btn btn-ghost">Read the full framework</a></p>
   </div>
 </section>
 
@@ -515,6 +505,21 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
         <div class="qm">“</div>
         <blockquote>Her willingness to show up authentically and choose herself even when it's
         imperfect inspired me to do the same.</blockquote>
+        <div class="who">Lux Q.</div>
+      </div>
+      <div class="t rv">
+        <div class="qm">“</div>
+        <blockquote>During the session I got in touch with sensing my throat for the first
+        time in my life.</blockquote>
+        <div class="who">Denise</div>
+      </div>
+      <div class="t rv">
+        <div class="qm">“</div>
+        <blockquote>Her intuition and ability to know exactly how to respond and attend
+        to me was extremely helpful.</blockquote>
+        <div class="who">Emily D.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -541,7 +546,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
         <a class="social" href="https://www.instagram.com/rebelhealerannie/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@rebelhealerannie</a>
       </div>
       <div class="f-col"><h5>Offerings</h5><a href="somatic-therapy.html">Somatic Therapy</a><a href="relational-therapy.html">Relational Therapy</a><a href="sound-healing.html">Sound Healing</a><a href="breathwork.html">Breathwork</a><a href="workshops.html">Workshops</a></div>
-      <div class="f-col"><h5>Framework</h5><a href="awaken.html">I. Awaken</a><a href="understand.html">II. Understand</a><a href="reconnect.html">III. Reconnect</a><a href="become.html">IV. Become</a><a href="relate.html">V. Relate</a></div>
+      <div class="f-col"><h5>Framework</h5><a href="framework.html">The Framework</a><a href="awaken.html">I. Awaken</a><a href="understand.html">II. Understand</a><a href="reconnect.html">III. Reconnect</a><a href="become.html">IV. Become</a><a href="relate.html">V. Relate</a></div>
       <div class="f-col"><h5>Practice</h5><a href="about.html">About Annie</a><a href="blog.html">Journal</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
       <div class="f-col"><h5>Legal</h5><a href="good-faith-estimate.html">Good Faith Estimate</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="accessibility.html">Accessibility</a></div>
     </div>
@@ -558,8 +563,26 @@ footer{border-top:1px solid var(--rule);padding:56px 0 44px}
 
 <script>
 const b=document.getElementById('burger'),nl=document.getElementById('navlinks');
+function closeNav(){if(!nl)return;nl.classList.remove('open');
+  if(b){b.setAttribute('aria-expanded','false');b.textContent='Menu';}}
 if(b){b.addEventListener('click',()=>{const o=nl.classList.toggle('open');
   b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu';});}
+// the burger used to stay open after a tap. close it, and if the link is an
+// anchor on this same page, scroll there instead of reloading the document.
+if(nl){nl.addEventListener('click',function(e){
+  const a=e.target.closest('a'); if(!a) return;
+  closeNav();
+  const h=a.getAttribute('href')||'', i=h.indexOf('#');
+  if(i<0) return;
+  const here=location.pathname.split('/').pop()||'index.html';
+  if(i>0 && h.slice(0,i)!==here) return;          // different page, let it navigate
+  const target=document.getElementById(h.slice(i+1));
+  if(!target) return;
+  e.preventDefault();
+  history.replaceState(null,'',h.slice(i));
+  target.scrollIntoView({behavior:'smooth',block:'start'});
+});}
+addEventListener('keydown',function(e){if(e.key==='Escape')closeNav();});
 
 
 // Hero video, with the safeguards that stop iOS reloading the tab.
