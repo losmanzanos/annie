@@ -5,8 +5,6 @@
 <script>document.documentElement.classList.add("js");</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- PREVIEW ONLY: remove this line before launch -->
-<meta name="robots" content="noindex, nofollow">
 <title>Contact | Rooted Resonance</title>
 <meta name="description" content="Reach out to Annie Memmott, LPC. Therapy for residents of Ohio, Arizona and Colorado. Sound healing, breathwork and workshops available anywhere.">
 <link rel="canonical" href="https://www.rootedresonancecoaching.com/contact.html">
@@ -20,10 +18,15 @@
 <meta name="twitter:title" content="Contact | Rooted Resonance">
 <meta name="twitter:description" content="Reach out to Annie Memmott, LPC. Therapy for residents of Ohio, Arizona and Colorado. Sound healing, breathwork and workshops available anywhere.">
 <meta name="twitter:image" content="https://www.rootedresonancecoaching.com/media/logo-full.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/media/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0C1210">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Rooted Resonance","url":"https://www.rootedresonancecoaching.com/contact.html","mainEntity":{"@type":"ProfessionalService","name":"Rooted Resonance Coaching & Therapy","telephone":"+1-513-497-8595","url":"https://www.rootedresonancecoaching.com/"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -54,7 +57,7 @@
     <div class="rv">
       <!-- FORM ENDPOINT: replace the action below with the live Formspree ID before launch.
            On Netlify or Cloudflare Pages this can instead use a native form handler. -->
-      <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+      <form id="rrForm" novalidate>
         <div class="field">
           <label for="name">Your name</label>
           <input id="name" name="name" type="text" autocomplete="name" required>
@@ -85,6 +88,10 @@
             <option>Something else</option>
           </select>
         </div>
+        <div class="hp" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
         <div class="notice">
           <strong>Please keep this general.</strong> Email is not a secure or confidential channel,
           so do not include clinical details, symptoms, diagnoses or anything private in this message.
@@ -98,6 +105,7 @@
         <button type="submit" class="btn btn-solid">Send <span class="arw">&rarr;</span></button>
         <p class="hint" style="margin-top:18px">I usually reply within two business days.
         Submitting this form does not create a therapist and client relationship.</p>
+        <p id="rrStatus" class="formstatus" role="status" aria-live="polite"></p>
       </form>
     </div>
 
@@ -208,6 +216,55 @@ setTimeout(function(){
   });
 }, 900);
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+  // EmailJS public key is meant to be public, but it is still rate limited in the
+  // EmailJS dashboard. Set the allowed origin there too, or anyone can use the key.
+  var PUBLIC_KEY  = 'REPLACE_PUBLIC_KEY';
+  var SERVICE_ID  = 'REPLACE_SERVICE_ID';
+  var TEMPLATE_ID = 'REPLACE_TEMPLATE_ID';
+
+  var form = document.getElementById('rrForm');
+  var status = document.getElementById('rrStatus');
+  if (!form || !window.emailjs) return;
+  emailjs.init({ publicKey: PUBLIC_KEY });
+
+  var sending = false, last = 0;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (sending) return;
+    if (form.company.value) { status.textContent = 'Thank you.'; return; }   // honeypot
+    if (Date.now() - last < 20000) {
+      status.className = 'formstatus err';
+      status.textContent = 'Give it a moment before sending again.';
+      return;
+    }
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    sending = true;
+    var btn = form.querySelector('button[type="submit"], .btn-solid');
+    var label = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Sending'; btn.setAttribute('aria-busy','true'); }
+    status.className = 'formstatus';
+    status.textContent = '';
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form).then(function(){
+      last = Date.now();
+      form.reset();
+      status.className = 'formstatus ok';
+      status.textContent = 'Thank you. Your note is on its way, and Annie will reply within two business days.';
+    }).catch(function(){
+      status.className = 'formstatus err';
+      status.textContent = 'That did not send. Please email rootedresonancetherapy@gmail.com or call 513-497-8595.';
+    }).finally(function(){
+      sending = false;
+      if (btn) { btn.textContent = label; btn.removeAttribute('aria-busy'); }
+    });
+  });
+})();
 </script>
 </body>
 </html>

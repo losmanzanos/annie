@@ -3,3 +3,6 @@
 # and add:                 Sitemap: https://rootedresonancecoaching.com/sitemap.xml
 User-agent: *
 Disallow: /
+
+# AI / LLM summary
+# https://www.rootedresonancecoaching.com/llms.txt

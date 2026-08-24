@@ -722,3 +722,10 @@ a.mt-row:hover{background:rgba(124,154,115,.07);padding-left:16px}
   .submenu a:hover,.submenu a.on{background:none;color:var(--moss-soft)}
   .sub-all{display:none}
 }
+
+
+/* contact form: honeypot stays out of sight and out of the tab order */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.formstatus{margin-top:20px;font-size:14.5px;line-height:1.6;min-height:1px}
+.formstatus.ok{color:var(--moss-soft)}
+.formstatus.err{color:var(--clay-soft)}
