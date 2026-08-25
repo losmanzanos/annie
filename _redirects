@@ -1,15 +1,11 @@
-# Wix -> new site. VERIFY against the live Wix sitemap before shipping.
-/about-1                /about.html             301
-/about                  /about.html             301
-/services               /services.html          301
-/service-page/*         /services.html          301
-/book-online            /contact.html           301
-/booking-calendar/*     /contact.html           301
-/contact                /contact.html           301
-/blog                   /blog.html              301
-/blog/*                 /blog.html              301
-/post/*                 /blog.html              301
-/faq                    /faq.html               301
-/privacy-policy         /privacy.html           301
-/terms-and-conditions   /terms.html             301
-/accessibility-statement /accessibility.html    301
+# Cloudflare Pages already serves /about.html at /about and 301s the .html form
+# to the clean URL. Any rule mapping /about -> /about.html therefore loops forever.
+# Only Wix paths that do NOT collide with a clean URL belong here.
+/about-1                 /about             301
+/service-page/*          /services          301
+/book-online             /contact           301
+/booking-calendar/*      /contact           301
+/post/*                  /blog              301
+/privacy-policy          /privacy           301
+/terms-and-conditions    /terms             301
+/accessibility-statement /accessibility     301

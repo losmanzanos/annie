@@ -1,0 +1,62 @@
+<!-- Rooted Resonance -> EmailJS template.
+     Paste into EmailJS > Email Templates > Content > Edit as HTML.
+     Settings: Subject = New inquiry from {{name}} ({{interest}})
+               To = rootedresonancetherapy@gmail.com
+               Reply-To = {{email}}     <-- important, lets Annie hit reply
+     Tokens match the input name="" attributes on /contact.html exactly. -->
+<div style="margin:0;padding:0;background:#0C1210;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0C1210;">
+<tr><td align="center" style="padding:32px 16px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:100%;background:#16211B;border:1px solid rgba(238,235,224,.17);border-radius:4px;">
+
+  <tr><td align="center" style="padding:34px 40px 24px;border-bottom:1px solid rgba(238,235,224,.17);">
+    <img src="https://rootedresonancecoaching.com/media/logo-full.png" width="140" alt="Rooted Resonance Coaching and Therapy" style="display:block;border:0;width:140px;height:auto;">
+  </td></tr>
+
+  <tr><td style="padding:36px 40px 6px;">
+    <p style="margin:0 0 10px;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#9CB893;">New inquiry</p>
+    <h1 style="margin:0;font-family:Georgia,'Times New Roman',serif;font-weight:normal;font-size:30px;line-height:1.15;color:#EEEBE0;">{{name}}</h1>
+    <p style="margin:10px 0 0;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:15px;color:rgba(238,235,224,.72);">
+      <a href="mailto:{{email}}" style="color:#D9906E;text-decoration:none;">{{email}}</a>
+    </p>
+  </td></tr>
+
+  <tr><td style="padding:26px 40px 0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid rgba(238,235,224,.17);">
+      <tr>
+        <td style="padding:16px 0 6px;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:rgba(238,235,224,.6);width:150px;vertical-align:top;">Located in</td>
+        <td style="padding:16px 0 6px;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:16px;color:#EEEBE0;">{{state}}</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 0 16px;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:rgba(238,235,224,.6);vertical-align:top;">Interested in</td>
+        <td style="padding:6px 0 16px;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:16px;color:#EEEBE0;">{{interest}}</td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:6px 40px 0;">
+    <p style="margin:0 0 10px;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:rgba(238,235,224,.6);">Message</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#1F2C25;border-left:2px solid #7C9A73;border-radius:3px;">
+      <tr><td style="padding:20px 22px;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.7;color:rgba(238,235,224,.88);white-space:pre-wrap;">{{message}}</td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td align="left" style="padding:28px 40px 36px;">
+    <a href="mailto:{{email}}" style="display:inline-block;padding:14px 30px;background:#C0714E;color:#150F0B;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;text-decoration:none;border-radius:999px;">Reply to {{name}}</a>
+  </td></tr>
+
+  <tr><td style="padding:20px 40px 30px;border-top:1px solid rgba(238,235,224,.17);">
+    <p style="margin:0;font-family:'Jost',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.65;color:rgba(238,235,224,.6);">
+      Sent from the contact form at rootedresonancecoaching.com. Email is not a secure or
+      confidential channel. If this message contains clinical detail, move the conversation to a
+      secure intake before replying in depth.
+    </p>
+    <p style="margin:14px 0 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;color:#9CB893;">
+      Become yourself. Transform everything.
+    </p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</div>
