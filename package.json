@@ -1,0 +1,13 @@
+{
+  "name": "rooted-resonance",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tinacms build",
+    "dev": "tinacms dev -c \"python3 -m http.server 8000\""
+  },
+  "devDependencies": {
+    "tinacms": "^2.2.9",
+    "@tinacms/cli": "^1.6.5"
+  }
+}

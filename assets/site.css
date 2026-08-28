@@ -592,8 +592,9 @@ section[id],main[id]{scroll-margin-top:96px}
 .signs-h{font-size:clamp(1.8rem,3.8vw,2.9rem);margin-top:16px}
 .signs-lead{margin-top:24px;color:var(--cream-dim);max-width:480px}
 .pullquote{
-  font-family:var(--display);font-style:italic;font-size:1.32rem;color:var(--cream);
-  margin-top:26px;padding-left:20px;border-left:1px solid var(--moss);line-height:1.45;
+  margin-top:30px;padding-top:24px;border-top:1px solid var(--rule);
+  font-family:var(--body);font-weight:300;font-size:1.12rem;line-height:1.6;
+  color:var(--moss-soft);max-width:520px;margin-bottom:38px;
 }
 .sec-h{font-size:clamp(2rem,4.4vw,3.2rem);margin-top:14px}
 .head-note{max-width:330px}
@@ -601,7 +602,7 @@ section[id],main[id]{scroll-margin-top:96px}
 @media(max-width:880px){
   .signs-h{font-size:clamp(1.65rem,6.4vw,2.15rem)}
   .signs-lead{max-width:none;margin-top:20px}
-  .pullquote{font-size:1.16rem;padding-left:16px;margin-top:22px}
+  .pullquote{font-size:1.02rem;margin-top:24px;padding-top:20px;margin-bottom:30px;max-width:none}
   .sec-h{font-size:clamp(1.7rem,6.2vw,2.3rem)}
   .head-note{max-width:none}
 }
@@ -729,3 +730,12 @@ a.mt-row:hover{background:rgba(124,154,115,.07);padding-left:16px}
 .formstatus{margin-top:20px;font-size:14.5px;line-height:1.6;min-height:1px}
 .formstatus.ok{color:var(--moss-soft)}
 .formstatus.err{color:var(--clay-soft)}
+
+/* substantive copy blocks on the offering pages */
+.deep{max-width:760px}
+.deep h3{font-family:var(--display);font-size:clamp(1.45rem,3vw,1.95rem);font-weight:300;margin:38px 0 14px}
+.deep h3:first-child{margin-top:0}
+.deep p{color:var(--cream-dim);margin-bottom:16px}
+.deep ul{list-style:none;margin:6px 0 18px}
+.deep li{position:relative;padding-left:22px;margin-bottom:10px;color:var(--cream-dim);font-size:15.5px}
+.deep li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;border:1px solid var(--moss);border-radius:50%}
