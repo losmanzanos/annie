@@ -21,3 +21,7 @@ invoice-*.pdf
 _ref/
 LAUNCH-CHECKLIST.md
 tina/__generated__/
+dist/
+admin/
+!tina/tina-lock.json
+_gh/

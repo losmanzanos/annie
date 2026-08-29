@@ -14,7 +14,6 @@
   <url><loc>https://www.rootedresonancecoaching.com/become.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.rootedresonancecoaching.com/relate.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.rootedresonancecoaching.com/blog.html</loc><priority>0.6</priority></url>
-  <url><loc>https://www.rootedresonancecoaching.com/blog-adaptation.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.rootedresonancecoaching.com/faq.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.rootedresonancecoaching.com/contact.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.rootedresonancecoaching.com/good-faith-estimate.html</loc><priority>0.6</priority></url>
@@ -22,4 +21,7 @@
   <url><loc>https://www.rootedresonancecoaching.com/terms.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.rootedresonancecoaching.com/accessibility.html</loc><priority>0.6</priority></url>
 <url><loc>https://www.rootedresonancecoaching.com/framework.html</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<!-- blog:start -->
+<url><loc>https://www.rootedresonancecoaching.com/blog-adaptation</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<!-- blog:end -->
 </urlset>
