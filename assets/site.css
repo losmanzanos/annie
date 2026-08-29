@@ -739,3 +739,8 @@ a.mt-row:hover{background:rgba(124,154,115,.07);padding-left:16px}
 .deep ul{list-style:none;margin:6px 0 18px}
 .deep li{position:relative;padding-left:22px;margin-bottom:10px;color:var(--cream-dim);font-size:15.5px}
 .deep li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;border:1px solid var(--moss);border-radius:50%}
+
+/* the status pill was colliding with the eyebrow directly beneath it */
+.offer-head-row .badge{margin-bottom:20px}
+.offer-head-row .badge+.eyebrow{display:block}
+@media(max-width:880px){.offer-head-row .badge{margin-bottom:16px}}
