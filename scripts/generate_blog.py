@@ -6,7 +6,7 @@ disk and dropped from the sitemap, so the URL genuinely 404s."""
 import os, json, glob, re, html, sys
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
-BASE = "https://www.rootedresonancecoaching.com/"
+BASE = "https://rootedresonancetherapy.com/"
 TEMPLATE_SRC = os.path.join(ROOT, 'blog-adaptation.html')
 
 def esc(s): return html.escape(s, quote=True)
