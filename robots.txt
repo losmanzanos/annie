@@ -1,8 +1,11 @@
-# PREVIEW ONLY. REPLACE BEFORE LAUNCH.
-# At launch this becomes:  User-agent: *  /  Allow: /
-# and add:                 Sitemap: https://rootedresonancetherapy.com/sitemap.xml
 User-agent: *
-Disallow: /
+Allow: /
 
-# AI / LLM summary
+# Not pages: email markup kept in the repo for reference
+Disallow: /email-template.html
+Disallow: /emailjs-template.html
+
+Sitemap: https://rootedresonancetherapy.com/sitemap.xml
+
+# Plain-language summary for AI search
 # https://rootedresonancetherapy.com/llms.txt
