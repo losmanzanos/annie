@@ -27,6 +27,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"The Rooted Resonance Framework","description":"Five stages from adaptation to authenticity.","url":"https://rootedresonancetherapy.com/framework","numberOfItems":5,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Awaken","url":"https://rootedresonancetherapy.com/awaken"},{"@type":"ListItem","position":2,"name":"Understand","url":"https://rootedresonancetherapy.com/understand"},{"@type":"ListItem","position":3,"name":"Reconnect","url":"https://rootedresonancetherapy.com/reconnect"},{"@type":"ListItem","position":4,"name":"Become","url":"https://rootedresonancetherapy.com/become"},{"@type":"ListItem","position":5,"name":"Relate","url":"https://rootedresonancetherapy.com/relate"}]}</script>
+<!-- GA4. Deliberately NOT on contact.html: analytics has no business running on a
+     therapy intake path, and health providers have been sued over exactly that. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HSWJBTKQK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HSWJBTKQK3', {
+    anonymize_ip: true,
+    allow_google_signals: false,      // no cross-device ad personalisation on a health site
+    allow_ad_personalization_signals: false
+  });
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>

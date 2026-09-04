@@ -98,6 +98,19 @@ footer{border-top:1px solid var(--rule);padding:48px 0}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Journal | Rooted Resonance","url":"https://rootedresonancetherapy.com/blog","author":{"@type":"Person","name":"Annie Memmott","honorificSuffix":"LPC","url":"https://rootedresonancetherapy.com/about"}}</script>
+<!-- GA4. Deliberately NOT on contact.html: analytics has no business running on a
+     therapy intake path, and health providers have been sued over exactly that. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HSWJBTKQK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HSWJBTKQK3', {
+    anonymize_ip: true,
+    allow_google_signals: false,      // no cross-device ad personalisation on a health site
+    allow_ad_personalization_signals: false
+  });
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
