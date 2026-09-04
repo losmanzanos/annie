@@ -25,3 +25,6 @@ dist/
 admin/
 !tina/tina-lock.json
 _gh/
+GO-LIVE-NEXT-STEPS.md
+HANDOFF-annie.md
+TINA-SETUP.md
