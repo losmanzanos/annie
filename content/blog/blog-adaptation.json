@@ -1,6 +1,6 @@
 {
   "title": "I spent years intellectualizing my problems.",
-  "titleHtml": "I spent years<br>intellectualizing<br>my problems.",
+  "published": false,
   "slug": "blog-adaptation",
   "date": "2026-08-07",
   "dateLabel": "August 7, 2026",
@@ -10,9 +10,7 @@
   "readingTime": "4 min",
   "excerpt": "Knowing every trauma and every trigger did not change anything. What finally did was learning to listen to my body.",
   "metaDescription": "Knowing every trauma and every trigger did not change anything. What finally did was learning to listen to my body. From Annie Memmott, LPC.",
-  "endnoteTitle": "If you are in this stage",
-  "endnoteBody": "Understanding is Stage II of the Rooted Resonance framework. If you have been circling the same insight for a while, that circling is information, not failure. Somatic therapy is usually what helps here.",
-  "published": true,
+  "titleHtml": "I spent years<br>intellectualizing<br>my problems.",
   "body": [
     "I knew every trauma. Every trigger. I could even tell you why I did the things I did. None of that changed anything.",
     "I want to say that plainly, because I think a lot of people are sitting exactly there and quietly concluding that something is wrong with them. You have done the reading. You have done the therapy, maybe more than once. You can explain your patterns better than the people around you can explain theirs. And you are still doing the thing.",
@@ -32,5 +30,7 @@
     "I believe this is not about fixing yourself. It is about remembering who you have always been.",
     "That remembering happens through the body more than through the mind. It is slower than anyone wants. And in my experience it arrives in a way that feels gradual for a long time and then, fairly suddenly, obvious.",
     "Understanding is Stage II of the Rooted Resonance framework. If you have been circling the same insight for a while, that circling is information, not failure. Somatic therapy is usually what helps here."
-  ]
+  ],
+  "endnoteTitle": "If you are in this stage",
+  "endnoteBody": "Understanding is Stage II of the Rooted Resonance framework. If you have been circling the same insight for a while, that circling is information, not failure. Somatic therapy is usually what helps here."
 }
